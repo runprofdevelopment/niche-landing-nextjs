@@ -1,6 +1,0 @@
-mutation EventUpdate($eventUpdateId: ID!, $data: UpdateEventInput!) {
-  eventUpdate(id: $eventUpdateId, data: $data) {
-    id
-    name
-  }
-}

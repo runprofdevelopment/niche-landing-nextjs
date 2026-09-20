@@ -250,6 +250,64 @@
   }
 }
 
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-title {
+  from {
+    opacity: 0;
+    letter-spacing: 0.08em;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    letter-spacing: -0.02em;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-ken {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@utility animate-hero-fade {
+  animation: hero-fade 0.9s ease-out both;
+}
+
+@utility animate-hero-title {
+  animation: hero-title 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-hero-rise {
+  animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-hero-ken {
+  animation: hero-ken 8s ease-out both;
+}
+
 /**
  * Data-table scrollports: on mouse/trackpad desktops, force classic always-visible
  * scrollbars. Touch devices keep overlay scrollbars (appear while dragging).

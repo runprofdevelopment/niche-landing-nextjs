@@ -1,6 +1,0 @@
-mutation EventGuestDestroy($eventGuestDestroyId: ID!) {
-  eventGuestDestroy(id: $eventGuestDestroyId) {
-    email
-    id
-  }
-}

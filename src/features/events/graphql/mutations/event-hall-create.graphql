@@ -1,7 +1,0 @@
-mutation EventHallCreate($data: CreateEventHallInput!) {
-  eventHallCreate(data: $data) {
-    id
-    eventId
-    name
-  }
-}

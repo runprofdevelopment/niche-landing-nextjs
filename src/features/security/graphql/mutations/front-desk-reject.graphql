@@ -1,3 +1,0 @@
-mutation FrontDeskReject($frontDeskRejectId: ID!, $reason: String!) {
-  frontDeskReject(id: $frontDeskRejectId, reason: $reason)
-}

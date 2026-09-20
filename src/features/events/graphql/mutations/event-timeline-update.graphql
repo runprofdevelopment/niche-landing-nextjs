@@ -1,5 +1,0 @@
-mutation EventTimelineUpdate($eventTimelineUpdateId: ID!, $data: UpdateEventTimelineInput!) {
-  eventTimelineUpdate(id: $eventTimelineUpdateId, data: $data) {
-    id
-  }
-}

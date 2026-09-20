@@ -1,5 +1,0 @@
-mutation FrontDeskCreate($data: CreateFrontDeskInput!) {
-  frontDeskCreate(data: $data) {
-    email
-  }
-}

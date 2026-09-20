@@ -1,5 +1,5 @@
 export const authRoutes = {
-  login: "/",
+  login: "/login",
   register: "/register",
   forgotPassword: "/forgot-password",
   checkEmail: "/check-email",
@@ -68,4 +68,4 @@ export const routes = {
   eventInvitation: (id: string) => `/events/${id}/invitation`,
 } as const;
 
-export const publicRoutes = Object.values(authRoutes);
+export const publicRoutes = [routes.home, ...Object.values(authRoutes)] as const;

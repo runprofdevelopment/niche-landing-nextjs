@@ -1,5 +1,0 @@
-mutation EventAbayaLabelGenerate($data: GenerateEventAbayaLabelInput!) {
-  eventAbayaLabelGenerate(data: $data) {
-    id
-  }
-}

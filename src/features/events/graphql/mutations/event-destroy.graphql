@@ -1,5 +1,0 @@
-mutation EventDestroy($eventDestroyId: ID!) {
-  eventDestroy(id: $eventDestroyId) {
-    id
-  }
-}

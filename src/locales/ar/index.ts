@@ -7,6 +7,7 @@ import dataTable from "./data-table";
 import errors from "./errors";
 import events from "./events";
 import invitations from "./invitations";
+import landing from "./landing";
 import meta from "./meta";
 import navigation from "./navigation";
 import registrationUsers from "./registration-users";
@@ -24,6 +25,7 @@ export default composeMessages({
   errors,
   events,
   invitations,
+  landing,
   meta,
   navigation,
   registrationUsers,

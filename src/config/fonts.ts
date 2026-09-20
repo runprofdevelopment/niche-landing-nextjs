@@ -15,6 +15,7 @@ export const fontSansArabic = Noto_Sans_Arabic({
 
 export const fontDisplay = Domine({
   subsets: ["latin"],
+  weight: ["400", "700"],
   variable: "--font-domine",
   display: "swap",
 });
