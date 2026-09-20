@@ -50,6 +50,9 @@ export function HeroSection() {
 
           <button
             type="button"
+            onClick={() =>
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
             className="animate-hero-rise group relative ms-auto inline-flex size-28 shrink-0 items-center justify-center rounded-full bg-[#c9b29a] text-center text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#2d1a1e] shadow-[0_12px_40px_rgba(0,0,0,0.28)] transition-transform duration-500 hover:scale-[1.04] sm:size-32 sm:text-xs [animation-delay:420ms]"
           >
             <span className="max-w-[5.5rem] leading-snug transition-transform duration-500 group-hover:scale-105">

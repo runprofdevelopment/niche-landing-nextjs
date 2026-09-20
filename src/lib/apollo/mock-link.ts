@@ -101,6 +101,24 @@ const handlers: Record<string, MockHandler> = {
   EventTypeEnum() {
     return { eventTypeEnum: mockDb.eventTypeEnum() };
   },
+  ContactUsRequestCreate(variables) {
+    const data = variables["data"] as {
+      countryCode: string;
+      customerName: string;
+      date: string;
+      email: string;
+      eventType: string;
+      message: string;
+      phoneNumber: string;
+      time: string;
+    };
+    return {
+      contactUsRequestCreate: {
+        id: `contact-${Date.now()}`,
+        email: data.email,
+      },
+    };
+  },
   UpdateEvent(variables) {
     const input = variables["input"] as Parameters<typeof mockDb.updateEvent>[1];
     return { updateEvent: mockDb.updateEvent(String(variables["id"]), input) };

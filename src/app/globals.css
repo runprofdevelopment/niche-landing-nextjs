@@ -6,6 +6,7 @@
 @theme inline {
   --font-display: var(--font-domine), Georgia, serif;
   --font-sans: var(--font-arimo), var(--font-arimo-arabic), ui-sans-serif, system-ui, sans-serif;
+  --font-geist: var(--font-geist-sans), var(--font-arimo-arabic), ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

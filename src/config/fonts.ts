@@ -1,4 +1,4 @@
-import { Arimo, Domine, Noto_Sans_Arabic } from "next/font/google";
+import { Arimo, Domine, Geist, Noto_Sans_Arabic } from "next/font/google";
 
 /** Arimo has no Arabic glyphs; Noto Sans Arabic covers those characters in the body stack. */
 export const fontSans = Arimo({
@@ -13,6 +13,12 @@ export const fontSansArabic = Noto_Sans_Arabic({
   display: "swap",
 });
 
+export const fontGeist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+  display: "swap",
+});
+
 export const fontDisplay = Domine({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -20,4 +26,4 @@ export const fontDisplay = Domine({
   display: "swap",
 });
 
-export const fontVariables = `${fontSans.variable} ${fontSansArabic.variable} ${fontDisplay.variable}`;
+export const fontVariables = `${fontSans.variable} ${fontSansArabic.variable} ${fontGeist.variable} ${fontDisplay.variable}`;

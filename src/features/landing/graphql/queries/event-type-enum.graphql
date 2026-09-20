@@ -1,0 +1,6 @@
+query EventTypeEnum {
+  eventTypeEnum {
+    id
+    label
+  }
+}

@@ -1,0 +1,6 @@
+mutation ContactUsRequestCreate($data: ContactUsRequestCreateInput!) {
+  contactUsRequestCreate(data: $data) {
+    id
+    email
+  }
+}

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+import { localeDirection, type Locale } from "@/config/i18n";
 import { RootProvider } from "@/providers";
 import { routing } from "@/providers/i18n/routing";
 import { getMessages, getTimeZone, hasLocale, setRequestLocale } from "@/providers/i18n/server";
@@ -26,10 +27,14 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   setRequestLocale(locale);
   const messages = await getMessages();
   const timeZone = await getTimeZone();
+  const resolvedLocale: Locale = locale === "ar" || locale === "en" ? locale : "en";
+  const dir = localeDirection[resolvedLocale];
 
   return (
-    <RootProvider locale={locale} messages={messages as Messages} timeZone={timeZone}>
-      {children}
-    </RootProvider>
+    <div lang={resolvedLocale} dir={dir} className="min-h-dvh">
+      <RootProvider locale={locale} messages={messages as Messages} timeZone={timeZone}>
+        {children}
+      </RootProvider>
+    </div>
   );
 }

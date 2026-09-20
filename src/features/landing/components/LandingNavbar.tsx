@@ -4,7 +4,7 @@ import { Languages, Moon, Sun } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { localeLabels, type Locale } from "@/config/i18n";
+import { localeDirection, localeLabels, type Locale } from "@/config/i18n";
 import { useTranslations } from "@/hooks/useTranslations";
 import { cn } from "@/lib/utils";
 import { useCurrentLocale, usePathname, useRouter } from "@/providers/i18n";
@@ -29,7 +29,11 @@ export function LandingNavbar() {
   const nextLocale: Locale = locale === "en" ? "ar" : "en";
 
   const switchLocale = () => {
+    const root = document.documentElement;
+    root.lang = nextLocale;
+    root.dir = localeDirection[nextLocale];
     router.replace(pathname, { locale: nextLocale });
+    router.refresh();
   };
 
   const toggleTheme = () => {

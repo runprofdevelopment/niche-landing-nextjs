@@ -2,7 +2,7 @@
 
 import { Languages } from "lucide-react";
 
-import { locales, localeLabels, type Locale } from "@/config/i18n";
+import { locales, localeLabels, localeDirection, type Locale } from "@/config/i18n";
 import { cn } from "@/lib/utils";
 import { useCurrentLocale, usePathname, useRouter, useSearchParams } from "@/providers/i18n";
 import { Button } from "@/shared/components/ui/button";
@@ -27,7 +27,10 @@ export function LanguageSwitcher({ label, triggerClassName }: LanguageSwitcherPr
   const switchLocale = (nextLocale: Locale) => {
     const query = Object.fromEntries(searchParams.entries());
     const href = Object.keys(query).length > 0 ? { pathname, query } : pathname;
+    document.documentElement.lang = nextLocale;
+    document.documentElement.setAttribute("dir", localeDirection[nextLocale]);
     router.replace(href, { locale: nextLocale });
+    router.refresh();
   };
 
   return (
