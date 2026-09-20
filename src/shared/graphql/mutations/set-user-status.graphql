@@ -1,0 +1,3 @@
+mutation SetUserStatus($setUserStatusId: ID!, $status: GenericStatusEnum!) {
+  setUserStatus(id: $setUserStatusId, status: $status)
+}

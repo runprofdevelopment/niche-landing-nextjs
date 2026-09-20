@@ -1,0 +1,5 @@
+mutation EventTimelineDestroy($eventTimelineDestroyId: ID!) {
+  eventTimelineDestroy(id: $eventTimelineDestroyId) {
+    id
+  }
+}

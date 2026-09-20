@@ -1,0 +1,45 @@
+query EventList(
+  $sort: [SortInput!]
+  $pagination: PaginationInput
+  $filters: EventFilterInput
+) {
+  eventList(sort: $sort, pagination: $pagination, filters: $filters) {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      totalCount
+      pageSize
+      page
+      totalPagesCount
+    }
+    rows {
+      id
+      name
+      eventType
+      date
+      startTime
+      endTime
+      brideName
+      groomName
+      hallCapacity
+      numberOfGuests
+      language
+      address
+      hallRef
+      googleMapUrl
+      eventHallIds
+      eventSeatMapIds
+      createdFrom
+      createdAt
+      updatedAt
+      createdBy
+      updatedBy
+      status
+      ownerId
+      owner {
+        id
+        fullName
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+query DashboardOverview {
+  dashboardOverview {
+    totalGuests
+    eventsThisWeek
+    upcomingEvents {
+      id
+      name
+      date
+      guestCount
+    }
+  }
+}

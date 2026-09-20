@@ -1,0 +1,5 @@
+mutation ContactUsRequestMarkResolved($contactUsRequestMarkResolvedId: ID!) {
+  contactUsRequestMarkResolved(id: $contactUsRequestMarkResolvedId) {
+    id
+  }
+}

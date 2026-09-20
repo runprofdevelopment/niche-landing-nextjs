@@ -1,0 +1,26 @@
+const settings = {
+  pageTitle: "Settings",
+  pageDescription: "Manage your application preferences and configurations.",
+  informationProfileTitle: "Information Profile",
+  informationProfileDescription: "Update your agency's basic information.",
+  securityTitle: "Security",
+  securityDescription: "Manage your password and authentication settings.",
+  nameLabel: "Name",
+  namePlaceholder: "Enter your name",
+  emailLabel: "Email",
+  phoneLabel: "Phone Number",
+  currentPasswordLabel: "Current Password",
+  newPasswordLabel: "New Password",
+  newPasswordPlaceholder: "Enter new password",
+  confirmPasswordLabel: "Confirm Password",
+  confirmPasswordPlaceholder: "Re-enter new password",
+  saveChanges: "Save Changes",
+  updatePassword: "Update Password",
+  avatarLabel: "Avatar",
+  avatarEdit: "Change avatar",
+  profileUpdated: "Profile updated successfully.",
+  passwordUpdated: "Password updated successfully.",
+  passwordUpdateFailed: "Unable to update password. Please try again.",
+} as const;
+
+export default settings;

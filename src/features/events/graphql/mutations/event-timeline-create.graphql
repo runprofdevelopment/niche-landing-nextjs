@@ -1,0 +1,6 @@
+mutation EventTimelineCreate($data: CreateEventTimelineInput!) {
+  eventTimelineCreate(data: $data) {
+    id
+    title
+  }
+}

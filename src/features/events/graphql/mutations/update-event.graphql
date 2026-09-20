@@ -1,0 +1,23 @@
+mutation UpdateEvent($id: ID!, $input: UpdateEventInput!) {
+  updateEvent(id: $id, input: $input) {
+    id
+    name
+    brideName
+    groomName
+    customerName
+    createdBy
+    date
+    startTime
+    endTime
+    venueName
+    expectedGuests
+    hallCapacity
+    hallReference
+    address
+    googleMapsUrl
+    invitationCount
+    status
+    language
+    createdAt
+  }
+}

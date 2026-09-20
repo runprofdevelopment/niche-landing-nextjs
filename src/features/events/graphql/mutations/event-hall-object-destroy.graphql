@@ -1,0 +1,6 @@
+mutation EventHallObjectDestroy($eventHallObjectDestroyId: ID!) {
+  eventHallObjectDestroy(id: $eventHallObjectDestroyId) {
+    id
+    label
+  }
+}

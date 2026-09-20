@@ -1,0 +1,72 @@
+import type { GuestType } from "../constants";
+import type { GuestUserFilterInput, GuestUserSortInput } from "./queries/guest-list";
+import type { DataTableDateRange } from "@/shared/components/table";
+import type { ColumnFiltersState, SortingState } from "@tanstack/react-table";
+
+const SORT_FIELD_MAP: Record<string, string> = {
+  name: "fullName",
+  email: "email",
+  phoneNumber: "formattedPhoneNumber",
+  registeredAt: "createdAt",
+  createdAt: "createdAt",
+  guestType: "guestType",
+};
+
+const SEARCH_FIELD_MAP: Record<string, "fullName" | "email" | "id"> = {
+  name: "fullName",
+  email: "email",
+  id: "id",
+};
+
+function toUtcDateTime(value: Date | undefined, bound: "start" | "end"): string | undefined {
+  if (!value) return undefined;
+  const year = value.getFullYear();
+  const month = String(value.getMonth() + 1).padStart(2, "0");
+  const day = String(value.getDate()).padStart(2, "0");
+  const time = bound === "start" ? "00:00:00" : "23:59:59";
+  return `${year}-${month}-${day}T${time}Z`;
+}
+
+export function buildGuestListFilters(options: {
+  tab: GuestType;
+  columnFilters: ColumnFiltersState;
+}): GuestUserFilterInput {
+  const filters: GuestUserFilterInput = {
+    guestType: options.tab,
+  };
+
+  for (const { id, value } of options.columnFilters) {
+    if (value == null || value === "") continue;
+
+    if (id === "createdAt") {
+      const range = value as DataTableDateRange;
+      const start = toUtcDateTime(range.from, "start");
+      const end = toUtcDateTime(range.to, "end");
+      if (!start && !end) continue;
+      filters.createdAtRange = {
+        start: start ?? null,
+        end: end ?? null,
+      };
+      continue;
+    }
+
+    if (id === "phoneNumber" || id === "registeredAt") {
+      continue;
+    }
+
+    const field = SEARCH_FIELD_MAP[id];
+    if (field) {
+      filters[field] = String(value).trim();
+    }
+  }
+
+  return filters;
+}
+
+export function buildGuestListSort(sorting: SortingState): GuestUserSortInput[] | undefined {
+  const entry = sorting.find((item) => SORT_FIELD_MAP[item.id]);
+  if (!entry) return undefined;
+  const field = SORT_FIELD_MAP[entry.id];
+  if (!field) return undefined;
+  return [{ field, order: entry.desc ? "desc" : "asc" }];
+}

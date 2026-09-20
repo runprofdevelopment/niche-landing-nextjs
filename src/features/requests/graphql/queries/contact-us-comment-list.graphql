@@ -1,0 +1,15 @@
+query ContactUsCommentList($contactUsId: ID!) {
+  contactUsCommentList(contactUsId: $contactUsId) {
+    comment
+    contactUsId
+    createdAt
+    createdBy
+    employee {
+      fullName
+      id
+    }
+    id
+    updatedAt
+    updatedBy
+  }
+}

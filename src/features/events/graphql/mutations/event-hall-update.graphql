@@ -1,0 +1,8 @@
+mutation EventHallUpdate($eventHallUpdateId: ID!, $data: UpdateEventHallInput!) {
+  eventHallUpdate(id: $eventHallUpdateId, data: $data) {
+    id
+    name
+    layoutVersion
+    status
+  }
+}

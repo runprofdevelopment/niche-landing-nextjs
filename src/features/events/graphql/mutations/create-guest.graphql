@@ -1,0 +1,19 @@
+mutation CreateGuest($input: CreateGuestInput!) {
+  createGuest(input: $input) {
+    id
+    eventId
+    name
+    familyName
+    email
+    phone
+    gender
+    abayaLabel
+    code
+    rsvpStatus
+    groupId
+    seatId
+    tableId
+    checkedInAt
+    checkedOutAt
+  }
+}

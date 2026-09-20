@@ -1,0 +1,40 @@
+query EventHallFind($eventHallFindId: ID!) {
+  eventHallFind(id: $eventHallFindId) {
+    id
+    eventId
+    name
+    coordinateSystem {
+      height
+      width
+    }
+    boundary {
+      height
+      heightMeters
+      points {
+        x
+        y
+      }
+      radius
+      shape
+      width
+      widthMeters
+      x
+      y
+    }
+    tableTemplates {
+      capacity
+      id
+      numberOfTables
+      seatNaming
+      tableNaming
+      tableShape
+      createdObjectCount
+    }
+    status
+    layoutVersion
+    createdAt
+    updatedAt
+    createdBy
+    updatedBy
+  }
+}

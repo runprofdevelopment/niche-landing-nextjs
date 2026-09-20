@@ -1,0 +1,30 @@
+query ContactUsList(
+  $filters: ContactUsFilterInput
+  $pagination: PaginationInput
+  $sort: [SortInput!]
+) {
+  contactUsList(filters: $filters, pagination: $pagination, sort: $sort) {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      totalCount
+      pageSize
+      page
+      totalPagesCount
+    }
+    rows {
+      countryCode
+      eventType
+      phoneNumber
+      time
+      customerName
+      date
+      email
+      createdAt
+      createdBy
+      message
+      id
+      status
+    }
+  }
+}

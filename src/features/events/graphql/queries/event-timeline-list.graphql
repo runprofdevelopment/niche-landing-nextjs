@@ -1,0 +1,11 @@
+query EventTimelineList($eventId: ID!) {
+  eventTimelineList(eventId: $eventId) {
+    id
+    title
+    description
+    createdAt
+    endTime
+    eventId
+    startTime
+  }
+}

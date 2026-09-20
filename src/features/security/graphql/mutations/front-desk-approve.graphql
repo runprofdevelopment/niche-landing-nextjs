@@ -1,0 +1,3 @@
+mutation FrontDeskApprove($frontDeskApproveId: ID!) {
+  frontDeskApprove(id: $frontDeskApproveId)
+}

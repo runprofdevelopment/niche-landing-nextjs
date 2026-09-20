@@ -1,0 +1,32 @@
+query AuthMe {
+  authMe {
+    id
+    email
+    emailVerified
+    fullName
+    countryCode
+    formattedPhoneNumber
+    phoneNumber
+    photoURL
+    profileType
+    status
+    provider
+    internalId
+    avatar {
+      id
+      name
+      publicUrl
+    }
+    ... on StaffProfile {
+      isOwner
+      permissions
+      roles
+      roleIds
+    }
+    ... on FrontdeskProfile {
+      id
+      fullName
+      status
+    }
+  }
+}

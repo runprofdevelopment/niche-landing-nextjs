@@ -1,0 +1,92 @@
+query EventFind($eventId: ID!) {
+  eventFind(id: $eventId) {
+    id
+    name
+    eventType
+    date
+    startTime
+    endTime
+    eventDateTime
+    eventEndDateTime
+    status
+    brideName
+    groomName
+    hallCapacity
+    numberOfGuests
+    language
+    address
+    hallRef
+    googleMapUrl
+    eventHallIds
+    eventSeatMapIds
+    createdFrom
+    createdAt
+    updatedAt
+    createdBy
+    updatedBy
+    ownerId
+    owner {
+      id
+      fullName
+    }
+  }
+  eventSetupProgressFind(eventId: $eventId) {
+    eventId
+    completedCount
+    totalCount
+    percentComplete
+    hallSetup {
+      completed
+      hallIds
+    }
+    guestList {
+      completed
+      guestCount
+      numberOfGuests
+    }
+    seatMapping {
+      completed
+      eventSeatMapIds
+    }
+    invitations {
+      completed
+    }
+    timeline {
+      completed
+    }
+    checkIn {
+      completed
+    }
+    abayaLabels {
+      completed
+    }
+    eventStaff {
+      completed
+    }
+    eventTables {
+      completed
+      numberOfGuests
+      totalCapacity
+    }
+  }
+  eventStatsFind(eventId: $eventId) {
+    eventId
+    totalGuests
+    expected {
+      count
+      percent
+    }
+    invitationsSent {
+      count
+      percent
+    }
+    rsvpsConfirmed {
+      count
+      percent
+    }
+    checkedIn {
+      count
+      percent
+    }
+  }
+}

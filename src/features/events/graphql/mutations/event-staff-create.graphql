@@ -1,0 +1,5 @@
+mutation EventStaffCreate($data: CreateEventStaffInput!) {
+  eventStaffCreate(data: $data) {
+    id
+  }
+}

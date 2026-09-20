@@ -1,0 +1,6 @@
+mutation StaffRegister($data: StaffRegisterInput!) {
+  staffRegister(data: $data) {
+    id
+    fullName
+  }
+}

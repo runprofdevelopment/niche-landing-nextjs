@@ -1,0 +1,297 @@
+"""
+Local GraphQL schema for codegen and mock development.
+Replace / extend to match the real backend when it is available.
+"""
+
+scalar DateTime
+
+type User {
+  id: ID!
+  email: String!
+  fullName: String
+  department: String
+  role: String
+}
+
+enum AuthProfileType {
+  guest
+  staff
+  frontdesk
+}
+
+type AuthAvatar {
+  id: ID!
+  name: String
+  publicUrl: String
+}
+
+interface AuthProfile {
+  id: ID!
+  email: String!
+  emailVerified: Boolean!
+  fullName: String
+  countryCode: String
+  formattedPhoneNumber: String
+  phoneNumber: String
+  photoURL: String
+  profileType: AuthProfileType!
+  status: String
+  provider: String
+  internalId: String
+  avatar: AuthAvatar
+}
+
+type GuestProfile implements AuthProfile {
+  id: ID!
+  email: String!
+  emailVerified: Boolean!
+  fullName: String
+  countryCode: String
+  formattedPhoneNumber: String
+  phoneNumber: String
+  photoURL: String
+  profileType: AuthProfileType!
+  status: String
+  provider: String
+  internalId: String
+  avatar: AuthAvatar
+}
+
+type StaffProfile implements AuthProfile {
+  id: ID!
+  email: String!
+  emailVerified: Boolean!
+  fullName: String
+  countryCode: String
+  formattedPhoneNumber: String
+  phoneNumber: String
+  photoURL: String
+  profileType: AuthProfileType!
+  status: String
+  provider: String
+  internalId: String
+  avatar: AuthAvatar
+  isOwner: Boolean!
+  permissions: [String!]
+  roles: [String!]
+  roleIds: [ID!]
+}
+
+type FrontdeskProfile implements AuthProfile {
+  id: ID!
+  email: String!
+  emailVerified: Boolean!
+  fullName: String
+  countryCode: String
+  formattedPhoneNumber: String
+  phoneNumber: String
+  photoURL: String
+  profileType: AuthProfileType!
+  status: String
+  provider: String
+  internalId: String
+  avatar: AuthAvatar
+}
+
+input CreateUserInput {
+  fullName: String!
+  email: String!
+  countryCode: String!
+  phone: String!
+  department: String!
+}
+
+input StaffRegisterInput {
+  countryCode: String!
+  department: String!
+  email: String!
+  fullName: String!
+  phoneNumber: String!
+}
+
+type StaffRegisterPayload {
+  id: ID!
+  fullName: String
+}
+
+enum GuestGender {
+  MALE
+  FEMALE
+}
+
+enum GuestRsvpStatus {
+  CONFIRMED
+  MAYBE
+  UNCONFIRMED
+}
+
+enum EventStatus {
+  ACTIVE
+  UPCOMING
+  PAST
+}
+
+enum EventCreatedBy {
+  APP
+  OPERATIONAL
+}
+
+type Guest {
+  id: ID!
+  eventId: ID!
+  name: String!
+  familyName: String
+  email: String
+  phone: String
+  gender: GuestGender
+  abayaLabel: String
+  code: String
+  rsvpStatus: GuestRsvpStatus
+  groupId: ID
+  hallId: ID
+  seatId: ID
+  tableId: ID
+  checkedInAt: DateTime
+  checkedOutAt: DateTime
+}
+
+input CreateGuestInput {
+  eventId: ID!
+  name: String!
+  familyName: String
+  email: String
+  phone: String
+  gender: GuestGender
+  code: String
+  abayaLabel: String
+  rsvpStatus: GuestRsvpStatus
+  groupId: ID
+}
+
+input UpdateGuestInput {
+  name: String
+  familyName: String
+  email: String
+  phone: String
+  gender: GuestGender
+  code: String
+  abayaLabel: String
+  rsvpStatus: GuestRsvpStatus
+  groupId: ID
+}
+
+type BulkImportError {
+  row: Int
+  field: String
+  message: String!
+}
+
+input BulkImportGuestsInput {
+  eventId: ID!
+  guests: [CreateGuestInput!]!
+}
+
+type BulkImportGuestsPayload {
+  message: String!
+  importedCount: Int!
+  guests: [Guest!]!
+  errors: [BulkImportError!]!
+}
+
+type Event {
+  id: ID!
+  name: String!
+  brideName: String!
+  groomName: String!
+  customerName: String!
+  createdBy: EventCreatedBy!
+  date: String!
+  startTime: String!
+  endTime: String!
+  venueName: String!
+  expectedGuests: Int!
+  hallCapacity: Int
+  hallReference: String
+  address: String
+  googleMapsUrl: String
+  invitationCount: Int!
+  status: EventStatus!
+  language: String!
+  createdAt: DateTime!
+}
+
+input CreateEventInput {
+  name: String!
+  brideName: String!
+  groomName: String!
+  customerName: String
+  createdBy: EventCreatedBy
+  date: String!
+  startTime: String!
+  endTime: String!
+  venueName: String!
+  expectedGuests: Int!
+  hallCapacity: Int
+  hallReference: String
+  address: String
+  googleMapsUrl: String
+  language: String!
+  status: EventStatus
+}
+
+input UpdateEventInput {
+  name: String
+  brideName: String
+  groomName: String
+  customerName: String
+  date: String
+  startTime: String
+  endTime: String
+  venueName: String
+  expectedGuests: Int
+  hallCapacity: Int
+  hallReference: String
+  address: String
+  googleMapsUrl: String
+  language: String
+  status: EventStatus
+  invitationCount: Int
+}
+
+type EventSummary {
+  id: ID!
+  name: String!
+  date: String
+  guestCount: Int!
+}
+
+type DashboardOverview {
+  upcomingEvents: [EventSummary!]!
+  totalGuests: Int!
+  eventsThisWeek: Int!
+}
+
+type Query {
+  me: User
+  authMe: AuthProfile
+  events(status: EventStatus): [Event!]!
+  event(id: ID!): Event
+  eventGuests(eventId: ID!): [Guest!]!
+  dashboardOverview: DashboardOverview!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+  staffRegister(data: StaffRegisterInput!): StaffRegisterPayload!
+  passwordReset(email: String!): Boolean!
+  verifyEmail(code: String!): Boolean!
+  resendVerificationCode: Boolean!
+  addDeviceToken(token: String!): Boolean!
+  removeDeviceToken(token: String!): Boolean!
+  createEvent(input: CreateEventInput!): Event!
+  updateEvent(id: ID!, input: UpdateEventInput!): Event!
+  deleteEvent(id: ID!): Boolean!
+  createGuest(input: CreateGuestInput!): Guest!
+  updateGuest(id: ID!, input: UpdateGuestInput!): Guest!
+  bulkImportGuests(input: BulkImportGuestsInput!): BulkImportGuestsPayload!
+}

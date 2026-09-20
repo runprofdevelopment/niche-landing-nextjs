@@ -1,0 +1,26 @@
+const dashboard = {
+  welcomeBack: "مرحباً بعودتك، {name}",
+  welcomeSubtitle: "إليك ما يحدث في فعالياتك اليوم.",
+  createNewEvent: "إنشاء فعالية جديدة",
+  totalEvents: "إجمالي الفعاليات",
+  upcomingEvents: "الفعاليات القادمة",
+  totalGuests: "إجمالي الضيوف",
+  eventsChartTitle: "عدد الفعاليات المجدولة لكل يوم من الأسبوع",
+  calendarTitle: "التقويم",
+  todayEvents: "فعاليات اليوم",
+  eventsOnDay: "فعاليات يوم {date}",
+  noEventsForDay: "لا توجد فعاليات في هذا اليوم",
+  previousMonth: "الشهر السابق",
+  nextMonth: "الشهر التالي",
+  selectMonth: "اختر الشهر",
+  recentEvents: "الفعاليات الأخيرة",
+  mon: "الإثنين",
+  tue: "الثلاثاء",
+  wed: "الأربعاء",
+  thu: "الخميس",
+  fri: "الجمعة",
+  sat: "السبت",
+  sun: "الأحد",
+} as const;
+
+export default dashboard;

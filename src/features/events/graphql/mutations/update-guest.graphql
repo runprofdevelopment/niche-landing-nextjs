@@ -1,0 +1,19 @@
+mutation UpdateGuest($id: ID!, $input: UpdateGuestInput!) {
+  updateGuest(id: $id, input: $input) {
+    id
+    eventId
+    name
+    familyName
+    email
+    phone
+    gender
+    abayaLabel
+    code
+    rsvpStatus
+    groupId
+    seatId
+    tableId
+    checkedInAt
+    checkedOutAt
+  }
+}

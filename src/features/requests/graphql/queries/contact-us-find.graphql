@@ -1,0 +1,18 @@
+query ContactUsFind($contactUsFindId: ID!) {
+  contactUsFind(id: $contactUsFindId) {
+    id
+    customerName
+    email
+    phoneNumber
+    countryCode
+    eventType
+    date
+    time
+    message
+    status
+    createdAt
+    createdBy
+    updatedAt
+    updatedBy
+  }
+}

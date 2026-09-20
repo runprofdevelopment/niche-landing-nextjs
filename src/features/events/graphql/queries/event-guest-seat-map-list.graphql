@@ -1,0 +1,23 @@
+query EventGuestSeatMapList($eventId: ID!) {
+  eventGuestSeatMapList(eventId: $eventId) {
+    groups {
+      parent {
+        id
+        name
+        seatId
+      }
+      id
+      count
+      members {
+        id
+        name
+        seatId
+      }
+    }
+    individuals {
+      id
+      name
+      seatId
+    }
+  }
+}

@@ -1,0 +1,23 @@
+query Event($id: ID!) {
+  event(id: $id) {
+    id
+    name
+    brideName
+    groomName
+    customerName
+    createdBy
+    date
+    startTime
+    endTime
+    venueName
+    expectedGuests
+    hallCapacity
+    hallReference
+    address
+    googleMapsUrl
+    invitationCount
+    status
+    language
+    createdAt
+  }
+}

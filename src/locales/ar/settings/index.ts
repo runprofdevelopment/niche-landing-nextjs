@@ -1,0 +1,26 @@
+const settings = {
+  pageTitle: "الإعدادات",
+  pageDescription: "إدارة تفضيلات التطبيق والإعدادات.",
+  informationProfileTitle: "الملف التعريفي",
+  informationProfileDescription: "حدّث المعلومات الأساسية لوكالتك.",
+  securityTitle: "الأمان",
+  securityDescription: "إدارة كلمة المرور وإعدادات المصادقة.",
+  nameLabel: "الاسم",
+  namePlaceholder: "أدخل اسمك",
+  emailLabel: "البريد الإلكتروني",
+  phoneLabel: "رقم الهاتف",
+  currentPasswordLabel: "كلمة المرور الحالية",
+  newPasswordLabel: "كلمة المرور الجديدة",
+  newPasswordPlaceholder: "أدخل كلمة المرور الجديدة",
+  confirmPasswordLabel: "تأكيد كلمة المرور",
+  confirmPasswordPlaceholder: "أعد إدخال كلمة المرور الجديدة",
+  saveChanges: "حفظ التغييرات",
+  updatePassword: "تحديث كلمة المرور",
+  avatarLabel: "الصورة الشخصية",
+  avatarEdit: "تغيير الصورة الشخصية",
+  profileUpdated: "تم تحديث الملف الشخصي بنجاح.",
+  passwordUpdated: "تم تحديث كلمة المرور بنجاح.",
+  passwordUpdateFailed: "تعذر تحديث كلمة المرور. حاول مرة أخرى.",
+} as const;
+
+export default settings;

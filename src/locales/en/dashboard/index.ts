@@ -1,0 +1,26 @@
+const dashboard = {
+  welcomeBack: "Welcome back, {name}",
+  welcomeSubtitle: "Here's what's happening with your events today.",
+  createNewEvent: "Create New Event",
+  totalEvents: "Total Events",
+  upcomingEvents: "Upcoming Events",
+  totalGuests: "Total Guests",
+  eventsChartTitle: "Number of events scheduled per day of the week",
+  calendarTitle: "Calendar",
+  todayEvents: "Today's Events",
+  eventsOnDay: "Events on {date}",
+  noEventsForDay: "No events for this day",
+  previousMonth: "Previous month",
+  nextMonth: "Next month",
+  selectMonth: "Select month",
+  recentEvents: "Recent Events",
+  mon: "Mon",
+  tue: "Tue",
+  wed: "Wed",
+  thu: "Thu",
+  fri: "Fri",
+  sat: "Sat",
+  sun: "Sun",
+} as const;
+
+export default dashboard;

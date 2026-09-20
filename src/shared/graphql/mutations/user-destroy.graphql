@@ -1,0 +1,6 @@
+mutation UserDestroy($userDestroyId: ID!) {
+  userDestroy(id: $userDestroyId) {
+    id
+    email
+  }
+}

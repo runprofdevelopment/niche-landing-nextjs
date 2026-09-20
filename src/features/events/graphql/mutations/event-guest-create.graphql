@@ -1,0 +1,6 @@
+mutation EventGuestCreate($data: CreateEventGuestInput!) {
+  eventGuestCreate(data: $data) {
+    email
+    id
+  }
+}

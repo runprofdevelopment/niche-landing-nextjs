@@ -1,0 +1,6 @@
+mutation UserAssignRole($userAssignRoleId: ID!, $roleIds: [String!]!) {
+  userAssignRole(id: $userAssignRoleId, roleIds: $roleIds) {
+    id
+    fullName
+  }
+}

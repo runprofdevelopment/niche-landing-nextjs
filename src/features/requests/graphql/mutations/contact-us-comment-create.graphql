@@ -1,0 +1,5 @@
+mutation ContactUsRequestCreate($data: ContactUsCommentCreateInput!) {
+  contactUsCommentCreate(data: $data) {
+    id
+  }
+}

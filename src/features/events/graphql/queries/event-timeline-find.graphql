@@ -1,0 +1,12 @@
+query EventTimelineFind($eventTimelineFindId: ID!) {
+  eventTimelineFind(id: $eventTimelineFindId) {
+    id
+    eventId
+    endTime
+    startTime
+    title
+    updatedAt
+    description
+    createdAt
+  }
+}

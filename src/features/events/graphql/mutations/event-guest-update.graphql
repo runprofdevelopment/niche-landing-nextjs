@@ -1,0 +1,6 @@
+mutation EventGuestUpdate($eventGuestUpdateId: ID!, $data: UpdateEventGuestInput!) {
+  eventGuestUpdate(id: $eventGuestUpdateId, data: $data) {
+    id
+    name
+  }
+}

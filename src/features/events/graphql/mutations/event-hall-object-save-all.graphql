@@ -1,0 +1,8 @@
+mutation EventHallObjectSaveAll($data: SaveEventHallObjectsInput!) {
+  eventHallObjectSaveAll(data: $data) {
+    id
+    updatedAt
+    eventHallId
+    eventId
+  }
+}

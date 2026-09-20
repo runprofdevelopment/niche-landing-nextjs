@@ -1,0 +1,8 @@
+mutation EventGuestCheckIn($eventId: ID!, $code: String!) {
+  eventGuestCheckIn(eventId: $eventId, code: $code) {
+    guest {
+      id
+      name
+    }
+  }
+}

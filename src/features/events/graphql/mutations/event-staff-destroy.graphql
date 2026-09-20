@@ -1,0 +1,5 @@
+mutation EventStaffDestroy($eventStaffDestroyId: ID!) {
+  eventStaffDestroy(id: $eventStaffDestroyId) {
+    id
+  }
+}

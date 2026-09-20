@@ -1,0 +1,28 @@
+query EventHallObjectList($eventId: ID!, $eventHallId: ID!) {
+  eventHallObjectList(eventId: $eventId, eventHallId: $eventHallId) {
+    label
+    id
+    table {
+      capacity
+      reservedSeats
+      shape
+    }
+    eventId
+    eventHallId
+    geometry
+    templateId
+    transform {
+      x
+      y
+      width
+      height
+      rotation
+      zIndex
+    }
+    type
+    updatedAt
+    updatedBy
+    createdBy
+    createdAt
+  }
+}

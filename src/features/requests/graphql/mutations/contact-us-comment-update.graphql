@@ -1,0 +1,8 @@
+mutation ContactUsCommentUpdate(
+  $contactUsCommentUpdateId: ID!
+  $data: ContactUsCommentUpdateInput!
+) {
+  contactUsCommentUpdate(id: $contactUsCommentUpdateId, data: $data) {
+    id
+  }
+}

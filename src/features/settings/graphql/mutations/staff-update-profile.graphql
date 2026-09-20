@@ -1,0 +1,7 @@
+mutation StaffUpdateProfile($profile: StaffProfileInput!) {
+  staffUpdateProfile(profile: $profile) {
+    email
+    id
+    fullName
+  }
+}

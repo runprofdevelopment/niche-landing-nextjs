@@ -1,0 +1,5 @@
+mutation EventSeatUnassign($data: EventSeatUnassignInput!) {
+  eventSeatUnassign(data: $data) {
+    id
+  }
+}

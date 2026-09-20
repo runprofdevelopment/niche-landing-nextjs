@@ -1,0 +1,7 @@
+mutation EventSeatSaveAll($data: SaveEventSeatsInput!) {
+  eventSeatSaveAll(data: $data) {
+    id
+    hallId
+    eventId
+  }
+}
