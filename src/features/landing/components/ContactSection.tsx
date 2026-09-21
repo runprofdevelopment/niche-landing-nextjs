@@ -99,7 +99,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative isolate scroll-mt-20 overflow-hidden py-16 sm:scroll-mt-24 sm:py-20 lg:py-24"
+      className="relative isolate scroll-mt-20 overflow-hidden bg-primary py-16 sm:scroll-mt-24 sm:py-20 lg:py-24"
     >
       <Image
         src="/images/natural.png"
@@ -108,7 +108,7 @@ export function ContactSection() {
         sizes="100vw"
         className="object-cover object-center"
       />
-      <div aria-hidden className="absolute inset-0 bg-primary/26" />
+      <div aria-hidden className="absolute inset-0 bg-primary/40" />
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-12">
         <div className="flex flex-col items-start justify-center text-primary-foreground">

@@ -43,20 +43,23 @@ export function LandingNavbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300",
+        "fixed inset-x-0  pt-4 pb-4top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300",
         scrolled
           ? "border-b border-white/10 bg-black/60 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-md"
           : "bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between px-5 sm:h-[4.5rem] sm:px-8 lg:px-12">
-        <div className="inline-flex items-center w-[170px] h-[70px] relative" aria-label={t("logoAlt")}>
+      <div className="mx-auto flex h-16 w-full max-w-360 items-center justify-between px-5 sm:h-18 sm:px-8 lg:px-12">
+        <div
+          className="relative h-8 w-32 sm:h-10 sm:w-40 lg:h-17.5 lg:w-42.5"
+          aria-label={t("logoAlt")}
+        >
           <Image
             src="/images/logo.png"
             alt=""
             fill
             priority
-            className="h-9 w-auto mix-blend-screen sm:h-10"
+            className="object-contain object-left mix-blend-screen"
           />
         </div>
 

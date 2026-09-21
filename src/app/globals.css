@@ -5,6 +5,7 @@
 
 @theme inline {
   --font-display: var(--font-domine), Georgia, serif;
+  --font-instrument: var(--font-instrument-serif), Georgia, serif;
   --font-sans: var(--font-arimo), var(--font-arimo-arabic), ui-sans-serif, system-ui, sans-serif;
   --font-geist: var(--font-geist-sans), var(--font-arimo-arabic), ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
@@ -69,7 +70,7 @@
 
   --selected: #6022341a;
   --selected-foreground: #602234;
-  --background: #fdf7f5;
+  --background: #EFE2DE;
   --secondary-button: #efe2de;
   --white: #ffffff;
   --black: #000000;
@@ -124,7 +125,7 @@
 .dark {
   --selected: #602234a6;
   --selected-foreground: #fffaf3;
-  --background: #170208;
+  --background: #080608;
   --secondary-button: #efe2de;
   --white: #000000;
   --black: #ffffff;

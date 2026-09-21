@@ -3,7 +3,9 @@
 import { Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 
+import { routes } from "@/constants/routes";
 import { useTranslations } from "@/hooks/useTranslations";
+import { Link } from "@/providers/i18n";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -130,9 +132,9 @@ export function LandingFooter() {
         <div className="mt-14 flex flex-col gap-4 border-t border-white/15 pt-6 text-xs text-white/55 sm:mt-16 sm:flex-row sm:items-center sm:justify-between sm:text-sm">
           <p>{t("footer.copyright")}</p>
           <div className="flex items-center gap-6">
-            <a href="#privacy" className="transition-colors hover:text-white/80">
+            <Link href={routes.privacy} className="transition-colors hover:text-white/80">
               {t("footer.privacy")}
-            </a>
+            </Link>
             <a href="#terms" className="transition-colors hover:text-white/80">
               {t("footer.terms")}
             </a>

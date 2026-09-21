@@ -16,6 +16,65 @@ const landing = {
     img2Alt: "Curated linens and household essentials",
     img3Alt: "Candlelit dining service with silverware",
   },
+  celebrate: {
+    heritage: "Heritage",
+    elegance: "Elegance",
+    prestige: "Prestige",
+    title: "Celebrate With Us",
+    imageAlt: "Niche Society concierge ready to celebrate with guests",
+  },
+  about: {
+    eyebrow: "About Us",
+    title: "Specialized in Providing Exceptional Management Solutions",
+    titleLine1: "Specialized in Providing",
+    titleLine2: "Exceptional Management",
+    titleLine3: "Solutions",
+    imageAlt: "Niche Society concierge in a luxury venue lobby",
+    body1:
+      "Niche Society specializes in providing management and organizational solutions that redefine excellence, covering private properties, real estate, etiquette and official protocols, logistics, public relations, training, and premium operational services.",
+    body2:
+      "With over 25 years of experience serving royal families, high-profile individuals, and international clients, we manage operations and coordinate details in a style that combines precision, privacy, and sophistication.",
+  },
+  services: {
+    intro:
+      "With over 25 years of experience serving royal families, high-profile individuals, and international clients, we manage operations and coordinate details in a style that combines precision, privacy, and sophistication.",
+    eyebrow: "Our Services",
+    title: "Integrated Solutions for Exceptional Management",
+    subtitle:
+      "A complete suite of luxury event and household management services, tailored for the GCC's most distinguished families.",
+    items: {
+      events: {
+        title: "Events Planning & Management",
+        description:
+          "End-to-end coordination of royal weddings, state dinners, and private celebrations.",
+        alt: "Luxury event stationery and floral arrangements",
+      },
+      digital: {
+        title: "Digitalize Events Management",
+        description:
+          "Innovative 3D hall planning, digital RSVPs, and real-time event tracking.",
+        alt: "Tablet showing event analytics and planning tools",
+      },
+      etiquette: {
+        title: "Etiquette & Protocol",
+        description:
+          "Diplomatic protocol consulting and cultural etiquette guidance for distinguished gatherings.",
+        alt: "Formal tea service and protocol presentation",
+      },
+      household: {
+        title: "Household Management",
+        description:
+          "Elite estate management, private chef coordination, and bespoke household services.",
+        alt: "Household scheduling and management on a tablet",
+      },
+      certification: {
+        title: "Team Skills Certification",
+        description:
+          "Professional training and certification programs for elite hospitality teams.",
+        alt: "Hospitality team member in professional uniform",
+      },
+    },
+  },
   contact: {
     title: "Begin Your Niche Story",
     description:
