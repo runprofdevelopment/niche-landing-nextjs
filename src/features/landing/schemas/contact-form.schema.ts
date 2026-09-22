@@ -5,42 +5,79 @@ import {
   isValidInternationalPhone,
 } from "@/shared/utils/international-phone";
 
-export const contactFormSchema = z
-  .object({
-    customerName: z.string().trim().min(1),
-    email: z.string().trim().email(),
-    countryCode: z.string().min(2),
-    phoneNumber: z.string().trim().min(1),
-    eventType: z.string().min(1),
-    date: z.date().nullable(),
-    time: z.date().nullable(),
-    message: z.string().trim().min(1),
-  })
-  .superRefine((values, ctx) => {
-    if (!values.date) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["date"],
-        message: "required",
-      });
-    }
+export type ContactFormValidationMessages = {
+  nameRequired: string;
+  emailRequired: string;
+  emailInvalid: string;
+  phoneRequired: string;
+  phoneInvalid: string;
+  eventTypeRequired: string;
+  dateRequired: string;
+  timeRequired: string;
+  messageRequired: string;
+};
 
-    if (!values.time) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["time"],
-        message: "required",
-      });
-    }
+const defaultMessages: ContactFormValidationMessages = {
+  nameRequired: "Full name is required",
+  emailRequired: "Email is required",
+  emailInvalid: "Enter a valid email address",
+  phoneRequired: "Phone number is required",
+  phoneInvalid: "Enter a valid phone number for the selected country",
+  eventTypeRequired: "Select an event type",
+  dateRequired: "Date is required",
+  timeRequired: "Time is required",
+  messageRequired: "Message is required",
+};
 
-    if (!isValidInternationalPhone(values.countryCode, values.phoneNumber)) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["phoneNumber"],
-        message: "invalid",
-      });
-    }
-  });
+export function createContactFormSchema(
+  messages: ContactFormValidationMessages = defaultMessages,
+) {
+  return z
+    .object({
+      customerName: z.string().trim().min(1, messages.nameRequired),
+      email: z
+        .string()
+        .trim()
+        .min(1, messages.emailRequired)
+        .email(messages.emailInvalid),
+      countryCode: z.string().min(2),
+      phoneNumber: z.string().trim().min(1, messages.phoneRequired),
+      eventType: z.string().min(1, messages.eventTypeRequired),
+      date: z.date().nullable(),
+      time: z.date().nullable(),
+      message: z.string().trim().min(1, messages.messageRequired),
+    })
+    .superRefine((values, ctx) => {
+      if (!values.date) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["date"],
+          message: messages.dateRequired,
+        });
+      }
+
+      if (!values.time) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["time"],
+          message: messages.timeRequired,
+        });
+      }
+
+      if (
+        values.phoneNumber.trim().length > 0 &&
+        !isValidInternationalPhone(values.countryCode, values.phoneNumber)
+      ) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["phoneNumber"],
+          message: messages.phoneInvalid,
+        });
+      }
+    });
+}
+
+export const contactFormSchema = createContactFormSchema();
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 

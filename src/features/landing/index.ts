@@ -1,4 +1,5 @@
 export { AboutSection } from "./components/AboutSection";
+export { AppPromoSection } from "./components/AppPromoSection";
 export { CelebrateSection } from "./components/CelebrateSection";
 export { ContactSection } from "./components/ContactSection";
 export { HeroSection } from "./components/HeroSection";
@@ -8,3 +9,4 @@ export { LandingPage } from "./components/LandingPage";
 export { PhilosophySection } from "./components/PhilosophySection";
 export { PrivacyPolicyPage } from "./components/PrivacyPolicyPage";
 export { ServicesSection } from "./components/ServicesSection";
+export { StatsSection } from "./components/StatsSection";

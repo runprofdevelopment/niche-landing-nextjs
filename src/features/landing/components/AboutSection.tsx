@@ -43,15 +43,6 @@ export function AboutSection() {
             </figure>
           </div>
         </div>
-
-        <div className="mx-auto mt-14 max-w-4xl space-y-6 text-center sm:mt-16 lg:mt-20">
-          <p className="font-geist text-base leading-relaxed text-[#fffaf3]/90 sm:text-lg">
-            {t("about.body1")}
-          </p>
-          <p className="font-geist text-base leading-relaxed text-[#fffaf3]/90 sm:text-lg">
-            {t("about.body2")}
-          </p>
-        </div>
       </div>
     </section>
   );

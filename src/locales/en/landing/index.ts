@@ -75,6 +75,28 @@ const landing = {
       },
     },
   },
+  app: {
+    titleLine1: "Your Niche Events,",
+    titleLine2: "In Your Hands",
+    description:
+      "Manage luxury events from your phone. Plan 3D halls, track RSVPs, and receive real-time updates—without losing the personal touch of bespoke service.",
+    features: {
+      hall: "3D hall planning & seating management",
+      rsvp: "RSVP tracking & guest list management",
+      alerts: "Real-time updates & event alerts",
+    },
+    imageAlt: "Niche Frontdesk mobile app on two phones",
+    appStore: "Download on the App Store",
+    googlePlay: "Get it on Google Play",
+  },
+  stats: {
+    items: {
+      entities: { value: "500+", label: "Luxury Events" },
+      clients: { value: "200+", label: "Elite Sovereign Clients" },
+      satisfaction: { value: "98%", label: "Royal Satisfaction" },
+      guests: { value: "50k+", label: "Honored Guests" },
+    },
+  },
   contact: {
     title: "Begin Your Niche Story",
     description:
@@ -86,6 +108,17 @@ const landing = {
     formSubtitle: "We'll get back to you within 24 hours.",
     submitSuccess: "Your request was sent. We'll be in touch soon.",
     submitError: "Please check the form and try again.",
+    validation: {
+      nameRequired: "Full name is required",
+      emailRequired: "Email is required",
+      emailInvalid: "Enter a valid email address",
+      phoneRequired: "Phone number is required",
+      phoneInvalid: "Enter a valid phone number for the selected country",
+      eventTypeRequired: "Select an event type",
+      dateRequired: "Date is required",
+      timeRequired: "Time is required",
+      messageRequired: "Message is required",
+    },
     fields: {
       name: "Full Name",
       email: "Email Address",

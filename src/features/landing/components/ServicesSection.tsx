@@ -37,11 +37,8 @@ export function ServicesSection() {
   const t = useTranslations("landing");
 
   return (
-    <section
-      id="services"
-      className="relative isolate overflow-hidden bg-[#EFE2DE] py-16 sm:py-20 lg:py-24 dark:bg-[#080608]"
-    >
-      {/* Full-width blurred groom background + theme gradients */}
+    <section id="services" className="relative isolate overflow-hidden bg-background py-16 sm:py-20 lg:py-24">
+      {/* Full-width blurred groom — covers descriptions + services */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -inset-6 blur-[5px]">
           <Image
@@ -49,7 +46,7 @@ export function ServicesSection() {
             alt=""
             fill
             sizes="100vw"
-            className="object-cover object-[center_50%]"
+            className="object-cover object-[center_30%]"
             priority={false}
           />
         </div>
@@ -58,7 +55,16 @@ export function ServicesSection() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-360 px-5 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-4xl space-y-5 text-center sm:space-y-6">
+          <p className="font-geist text-base leading-relaxed text-foreground sm:text-lg">
+            {t("about.body1")}
+          </p>
+          <p className="font-geist text-base leading-relaxed text-foreground sm:text-lg">
+            {t("about.body2")}
+          </p>
+        </div>
+
+        <div className="mx-auto mt-12 max-w-4xl text-center sm:mt-14 lg:mt-16">
           <p className="font-geist text-[11px] font-medium tracking-[0.22em] text-secondary uppercase">
             {t("services.eyebrow")}
           </p>
@@ -88,7 +94,7 @@ export function ServicesSection() {
               <h3 className="mt-4 font-instrument text-xl leading-snug font-normal text-foreground sm:text-2xl">
                 {t(`services.items.${service.key}.title`)}
               </h3>
-              <p className="mt-2 font-geist text-sm leading-relaxed text-foreground/75 sm:text-base">
+              <p className="mt-2 font-geist text-sm leading-relaxed text-foreground/80 sm:text-base">
                 {t(`services.items.${service.key}.description`)}
               </p>
             </article>

@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
+import { useMemo } from "react";
 import { useForm, useWatch, type Resolver } from "react-hook-form";
 
 import {
@@ -12,7 +13,7 @@ import {
 } from "@/features/landing/graphql";
 import {
   contactFormDefaultValues,
-  contactFormSchema,
+  createContactFormSchema,
   type ContactFormValues,
 } from "@/features/landing/schemas/contact-form.schema";
 import { useTranslations } from "@/hooks/useTranslations";
@@ -48,9 +49,25 @@ export function ContactSection() {
   const { options: eventTypeOptions, loading: eventTypesLoading } = useEventTypeEnumQuery();
   const { createRequest, creating } = useContactUsRequestCreate();
 
+  const schema = useMemo(
+    () =>
+      createContactFormSchema({
+        nameRequired: t("contact.validation.nameRequired"),
+        emailRequired: t("contact.validation.emailRequired"),
+        emailInvalid: t("contact.validation.emailInvalid"),
+        phoneRequired: t("contact.validation.phoneRequired"),
+        phoneInvalid: t("contact.validation.phoneInvalid"),
+        eventTypeRequired: t("contact.validation.eventTypeRequired"),
+        dateRequired: t("contact.validation.dateRequired"),
+        timeRequired: t("contact.validation.timeRequired"),
+        messageRequired: t("contact.validation.messageRequired"),
+      }),
+    [t],
+  );
+
   const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema) as Resolver<ContactFormValues>,
-    mode: "onBlur",
+    resolver: zodResolver(schema) as Resolver<ContactFormValues>,
+    mode: "onSubmit",
     reValidateMode: "onChange",
     defaultValues: {
       ...contactFormDefaultValues,
@@ -61,40 +78,45 @@ export function ContactSection() {
   const countryCode =
     useWatch({ control: form.control, name: "countryCode" }) ?? DEFAULT_PHONE_COUNTRY_CODE;
 
-  const onSubmit = form.handleSubmit(async (values) => {
-    try {
-      if (!values.date || !values.time) {
-        toast.error(t("contact.submitError"));
-        return;
+  const onSubmit = form.handleSubmit(
+    async (values) => {
+      try {
+        if (!values.date || !values.time) {
+          toast.error(t("contact.submitError"));
+          return;
+        }
+
+        const date = format(values.date, "yyyy-MM-dd");
+        const time = formatTime24(values.time);
+        if (!time) {
+          toast.error(t("contact.submitError"));
+          return;
+        }
+
+        await createRequest({
+          customerName: values.customerName.trim(),
+          email: values.email.trim(),
+          countryCode: toApiDialCode(values.countryCode),
+          phoneNumber: values.phoneNumber.trim(),
+          eventType: values.eventType,
+          date,
+          time,
+          message: values.message.trim(),
+        });
+
+        toast.success(t("contact.submitSuccess"));
+        form.reset({
+          ...contactFormDefaultValues,
+          countryCode: DEFAULT_PHONE_COUNTRY_CODE,
+        });
+      } catch (error) {
+        handleError(error, { context: { feature: "landing", action: "contactUsRequestCreate" } });
       }
-
-      const date = format(values.date, "yyyy-MM-dd");
-      const time = formatTime24(values.time);
-      if (!time) {
-        toast.error(t("contact.submitError"));
-        return;
-      }
-
-      await createRequest({
-        customerName: values.customerName.trim(),
-        email: values.email.trim(),
-        countryCode: toApiDialCode(values.countryCode),
-        phoneNumber: values.phoneNumber.trim(),
-        eventType: values.eventType,
-        date,
-        time,
-        message: values.message.trim(),
-      });
-
-      toast.success(t("contact.submitSuccess"));
-      form.reset({
-        ...contactFormDefaultValues,
-        countryCode: DEFAULT_PHONE_COUNTRY_CODE,
-      });
-    } catch (error) {
-      handleError(error, { context: { feature: "landing", action: "contactUsRequestCreate" } });
-    }
-  });
+    },
+    () => {
+      toast.error(t("contact.submitError"));
+    },
+  );
 
   return (
     <section
@@ -167,7 +189,7 @@ export function ContactSection() {
             <form
               onSubmit={onSubmit}
               noValidate
-              className="mt-8 space-y-4 [&_label]:text-primary-foreground [&_p]:text-primary-foreground/70"
+              className="mt-8 space-y-4 [&_label]:text-primary-foreground [&_p.text-destructive]:text-[#ffb4b4]"
             >
               <FormField
                 control={form.control}

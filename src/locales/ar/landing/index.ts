@@ -75,6 +75,28 @@ const landing = {
       },
     },
   },
+  app: {
+    titleLine1: "فعاليات Niche الخاصة بك،",
+    titleLine2: "بين يديك",
+    description:
+      "أدر الفعاليات الفاخرة من هاتفك. خطط القاعات ثلاثية الأبعاد، وتتبع ردود الدعوات، واستقبل التحديثات الفورية—دون أن تفقد لمسة الخدمة المخصصة.",
+    features: {
+      hall: "تخطيط القاعات ثلاثي الأبعاد وإدارة المقاعد",
+      rsvp: "تتبع الردود وإدارة قائمة الضيوف",
+      alerts: "تحديثات فورية وتنبيهات الفعالية",
+    },
+    imageAlt: "تطبيق Niche Frontdesk على هاتفين",
+    appStore: "حمّل من App Store",
+    googlePlay: "حمّل من Google Play",
+  },
+  stats: {
+    items: {
+      entities: { value: "+٥٠٠", label: "فعاليات فاخرة" },
+      clients: { value: "+٢٠٠", label: "عملاء سياديون نخبة" },
+      satisfaction: { value: "٪٩٨", label: "رضا ملكي" },
+      guests: { value: "+٥٠ألف", label: "ضيوف مكرّمون" },
+    },
+  },
   contact: {
     title: "ابدأ قصة Niche الخاصة بك",
     description:
@@ -86,6 +108,17 @@ const landing = {
     formSubtitle: "سنعاود التواصل معك خلال ٢٤ ساعة.",
     submitSuccess: "تم إرسال طلبك. سنتواصل معك قريباً.",
     submitError: "يرجى التحقق من النموذج والمحاولة مرة أخرى.",
+    validation: {
+      nameRequired: "الاسم الكامل مطلوب",
+      emailRequired: "البريد الإلكتروني مطلوب",
+      emailInvalid: "أدخل بريداً إلكترونياً صالحاً",
+      phoneRequired: "رقم الهاتف مطلوب",
+      phoneInvalid: "أدخل رقماً صالحاً للدولة المحددة",
+      eventTypeRequired: "اختر نوع الفعالية",
+      dateRequired: "التاريخ مطلوب",
+      timeRequired: "الوقت مطلوب",
+      messageRequired: "الرسالة مطلوبة",
+    },
     fields: {
       name: "الاسم الكامل",
       email: "البريد الإلكتروني",
