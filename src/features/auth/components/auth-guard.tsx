@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { isFirebaseConfigured } from "@/config/env";
 import { routes } from "@/constants/routes";
 import { canAccessDashboard, isPendingApproval } from "@/features/auth/types";
-import { useHydrated } from "@/features/events/hooks/useHydrated";
+import { useHydrated } from "@/hooks/useHydrated";
 import { useAuth } from "@/providers/auth/useAuth";
 import { useRouter } from "@/providers/i18n";
 

@@ -3,7 +3,7 @@
 
 import { useEffect, useMemo } from "react";
 
-import { useEventTypeEnumQuery } from "@/features/events/graphql";
+import { useEventTypeEnumQuery } from "@/features/landing/graphql";
 import {
   buildContactUsListFilters,
   buildContactUsListSort,
