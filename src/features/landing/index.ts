@@ -9,6 +9,7 @@ export { LandingPage } from "./components/LandingPage";
 export { LandingSplash } from "./components/LandingSplash";
 export { PhilosophySection } from "./components/PhilosophySection";
 export { PrivacyPolicyPage } from "./components/PrivacyPolicyPage";
+export { TermsAndConditionsPage } from "./components/TermsAndConditionsPage";
 export { Reveal } from "./components/Reveal";
 export { ServicesSection } from "./components/ServicesSection";
 export { StatsSection } from "./components/StatsSection";

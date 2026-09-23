@@ -16,7 +16,12 @@ function XIcon({ className }: { className?: string }) {
   );
 }
 
-const NAV_KEYS = ["legacy", "services", "curators", "gallery"] as const;
+const NAV_LINKS = [
+  { key: "legacy", href: "#philosophy" },
+  { key: "services", href: "#services" },
+  { key: "curators", href: "#about" },
+  { key: "gallery", href: "#celebrate" },
+] as const;
 
 const SOCIAL_LINKS = [
   { key: "instagram", href: siteConfig.social.instagram, Icon: Instagram },
@@ -58,9 +63,9 @@ export function LandingFooter() {
                 {t("footer.navigation")}
               </h3>
               <ul className="space-y-3 font-display text-base text-white/90 sm:text-lg">
-                {NAV_KEYS.map((key) => (
+                {NAV_LINKS.map(({ key, href }) => (
                   <li key={key}>
-                    <a href={`#${key}`} className="transition-colors hover:text-white">
+                    <a href={href} className="transition-colors hover:text-white">
                       {t(`footer.nav.${key}`)}
                     </a>
                   </li>
@@ -123,9 +128,9 @@ export function LandingFooter() {
             <Link href={routes.privacy} className="transition-colors hover:text-white/80">
               {t("footer.privacy")}
             </Link>
-            <a href="#terms" className="transition-colors hover:text-white/80">
+            <Link href={routes.terms} className="transition-colors hover:text-white/80">
               {t("footer.terms")}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

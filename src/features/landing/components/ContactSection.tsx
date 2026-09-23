@@ -134,10 +134,10 @@ export function ContactSection() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-12">
         <div className="flex flex-col items-start justify-center text-primary-foreground">
-          <h2 className="font-display text-start text-3xl leading-tight font-bold tracking-wide uppercase sm:text-4xl lg:text-[2.75rem]">
+          <h2 className="text-start font-display text-[clamp(2.5rem,7vw,3.75rem)] leading-tight font-bold text-primary-foreground">
             {t("contact.title")}
           </h2>
-          <p className="mt-5 max-w-md text-start font-sans text-base leading-relaxed text-primary-foreground/90 sm:text-lg">
+          <p className="mt-5 max-w-md text-start font-sans text-lg leading-relaxed font-normal text-primary-foreground">
             {t("contact.description")}
           </p>
 
@@ -178,7 +178,7 @@ export function ContactSection() {
         </div>
 
         <div className="rounded-[1.75rem] border border-primary-foreground/10 bg-[#2f0e18]/55 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-8">
-          <h3 className="font-display text-2xl font-bold text-primary-foreground sm:text-[1.75rem]">
+          <h3 className="font-display text-[clamp(1.5rem,4vw,1.875rem)] font-bold text-white">
             {t("contact.formTitle")}
           </h3>
           <p className="mt-1.5 font-sans text-sm text-primary-foreground/75">

@@ -22,7 +22,7 @@ export function CelebrateSection() {
           {PILLARS.map((key) => (
             <li
               key={key}
-              className="font-display text-sm tracking-wide text-primary-foreground/90 sm:text-base"
+              className="font-display text-sm tracking-wide text-foreground/85 sm:text-base dark:text-primary-foreground/90"
             >
               {t(`celebrate.${key}`)}
             </li>

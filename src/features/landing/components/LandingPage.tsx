@@ -12,7 +12,7 @@ import { LandingSplash } from "./LandingSplash";
 import { PhilosophySection } from "./PhilosophySection";
 import { Reveal } from "./Reveal";
 import { ServicesSection } from "./ServicesSection";
-import { StatsSection } from "./StatsSection";
+// import { StatsSection } from "./StatsSection";
 
 export function LandingPage() {
   return (
@@ -33,9 +33,9 @@ export function LandingPage() {
           <Reveal variant="scale" delay={60}>
             <AppPromoSection />
           </Reveal>
-          <Reveal delay={40}>
+          {/* <Reveal delay={40}>
             <StatsSection />
-          </Reveal>
+          </Reveal> */}
           <Reveal delay={60}>
             <ContactSection />
           </Reveal>

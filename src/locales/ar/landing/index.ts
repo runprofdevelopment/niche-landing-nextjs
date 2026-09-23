@@ -102,7 +102,7 @@ const landing = {
     description:
       "نحن مستعدون لمساعدتك في التخطيط لحفل زفافك المثالي. سواء كان لديك مكان في ذهنك أو تحتاج إلى بعض الإلهام، فريقنا هنا لإرشادك في كل خطوة.",
     email: "support@niche-society.com",
-    phone: "+966 11 234 5678",
+    phone: "+966 57 395 0656",
     location: "الرياض، المملكة العربية السعودية",
     formTitle: "أرسل رسالة",
     formSubtitle: "سنعاود التواصل معك خلال ٢٤ ساعة.",
@@ -155,11 +155,11 @@ const landing = {
       linkedin: "لينكدإن",
     },
     email: "support@niche-society.com",
-    phone: "+966 11 234 5678",
+    phone: "+966 57 395 0656",
     location: "الرياض، المملكة العربية السعودية",
     copyright: "© 2026 Mukhmal Luxury Systems",
     privacy: "سياسة الخصوصية",
-    terms: "الشروط",
+    terms: "الشروط والأحكام",
   },
 } as const;
 
