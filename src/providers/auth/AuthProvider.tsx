@@ -32,14 +32,15 @@ import {
   type RegisterUserInput,
 } from "@/features/auth/services/auth-api";
 import { getFirebaseAuth } from "@/services/firebase/auth";
-import {
-  resetFcm,
-  setupFirebaseMessages,
-  teardownFirebaseMessages,
-} from "@/services/firebase/messaging";
+// FCM not needed on this landing project — keep messaging helpers unused.
+// import {
+//   resetFcm,
+//   setupFirebaseMessages,
+//   teardownFirebaseMessages,
+// } from "@/services/firebase/messaging";
 
 /** Defer FCM so login → dashboard paint is not blocked by permission / SW work. */
-const FCM_DEFER_MS = 2500;
+// const FCM_DEFER_MS = 2500;
 
 export type AuthUser = {
   id: string;
@@ -187,7 +188,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (!firebaseUser) {
-        resetFcm();
+        // resetFcm();
         mePromiseRef.current = null;
         meUidRef.current = null;
         userRef.current = null;
@@ -213,35 +214,36 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return unsubscribe;
   }, [loadMeProfile]);
 
-  // A2: defer FCM until after first paint / idle so login redirect is not blocked.
-  useEffect(() => {
-    if (!user || isLoading) return;
-
-    let cancelled = false;
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-    let idleId: number | undefined;
-
-    const run = () => {
-      if (cancelled) return;
-      void setupFirebaseMessages();
-    };
-
-    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-      idleId = window.requestIdleCallback(run, { timeout: FCM_DEFER_MS });
-    } else {
-      timeoutId = setTimeout(run, FCM_DEFER_MS);
-    }
-
-    return () => {
-      cancelled = true;
-      if (timeoutId) clearTimeout(timeoutId);
-      if (idleId != null && typeof window !== "undefined" && "cancelIdleCallback" in window) {
-        window.cancelIdleCallback(idleId);
-      }
-    };
-    // Intentionally keyed by uid — avoid re-deferring when user object identity changes.
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- user.id
-  }, [user?.id, isLoading]);
+  // FCM disabled for landing — no push permission / SW registration here.
+  // // A2: defer FCM until after first paint / idle so login redirect is not blocked.
+  // useEffect(() => {
+  //   if (!user || isLoading) return;
+  //
+  //   let cancelled = false;
+  //   let timeoutId: ReturnType<typeof setTimeout> | undefined;
+  //   let idleId: number | undefined;
+  //
+  //   const run = () => {
+  //     if (cancelled) return;
+  //     void setupFirebaseMessages();
+  //   };
+  //
+  //   if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+  //     idleId = window.requestIdleCallback(run, { timeout: FCM_DEFER_MS });
+  //   } else {
+  //     timeoutId = setTimeout(run, FCM_DEFER_MS);
+  //   }
+  //
+  //   return () => {
+  //     cancelled = true;
+  //     if (timeoutId) clearTimeout(timeoutId);
+  //     if (idleId != null && typeof window !== "undefined" && "cancelIdleCallback" in window) {
+  //       window.cancelIdleCallback(idleId);
+  //     }
+  //   };
+  //   // Intentionally keyed by uid — avoid re-deferring when user object identity changes.
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps -- user.id
+  // }, [user?.id, isLoading]);
 
   const signIn = useCallback(
     async (email: string, password: string, rememberMe = true) => {
@@ -310,7 +312,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       return;
     }
     // Remove device token while Bearer auth is still valid, then sign out.
-    await teardownFirebaseMessages();
+    // await teardownFirebaseMessages();
     const auth = getFirebaseAuth();
     await firebaseSignOut(auth);
     mePromiseRef.current = null;

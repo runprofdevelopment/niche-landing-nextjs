@@ -92,14 +92,14 @@ function Select({
             <span
               className={cn(
                 "truncate",
-                selectedOption ? "text-foreground" : "text-muted-foreground",
+                selectedOption ? "text-inherit" : "text-muted-foreground",
               )}
             >
               {selectedOption ? selectedOption.label : resolvedPlaceholder}
             </span>
           )}
         </Combobox.Value>
-        <Combobox.Icon className="shrink-0 text-muted-foreground">
+        <Combobox.Icon className="shrink-0 text-inherit opacity-70">
           <ChevronsUpDown className="size-4" />
         </Combobox.Icon>
       </Combobox.Trigger>

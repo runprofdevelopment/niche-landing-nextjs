@@ -4,10 +4,11 @@ import { ApolloClient, HttpLink, InMemoryCache, from } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
 import { apolloDefaultOptions } from "@/config/apollo";
-import { env, isFirebaseConfigured, isGraphqlMocksEnabled } from "@/config/env";
+import { env, isGraphqlMocksEnabled } from "@/config/env";
 import { defaultLocale, locales, type Locale } from "@/config/i18n";
 import { mockLink } from "@/lib/apollo/mock-link";
-import { getFirebaseAuth } from "@/services/firebase/auth";
+// import { getFirebaseAuth } from "@/services/firebase/auth";
+// import { isFirebaseConfigured } from "@/config/env";
 
 import type { ApolloLink } from "@apollo/client";
 
@@ -34,19 +35,20 @@ const authLink = setContext(async (_, { headers }) => {
     "Accept-Language": resolveAcceptLanguage(),
   };
 
-  if (!isFirebaseConfigured()) {
-    return { headers: nextHeaders };
-  }
-
-  try {
-    const auth = getFirebaseAuth();
-    const token = auth.currentUser ? await auth.currentUser.getIdToken() : null;
-    if (token) {
-      nextHeaders["Authorization"] = `Bearer ${token}`;
-    }
-  } catch {
-    // Keep request headers without a token when Firebase is unavailable.
-  }
+  // Landing: no Authorization token for now.
+  // if (!isFirebaseConfigured()) {
+  //   return { headers: nextHeaders };
+  // }
+  //
+  // try {
+  //   const auth = getFirebaseAuth();
+  //   const token = auth.currentUser ? await auth.currentUser.getIdToken() : null;
+  //   if (token) {
+  //     nextHeaders["Authorization"] = `Bearer ${token}`;
+  //   }
+  // } catch {
+  //   // Keep request headers without a token when Firebase is unavailable.
+  // }
 
   return { headers: nextHeaders };
 });

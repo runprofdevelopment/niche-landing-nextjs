@@ -7,19 +7,19 @@ import { cn } from "@/lib/utils";
 
 const GALLERY = [
   {
-    src: "/images/img1.png",
+    src: "/images/img1.webp",
     altKey: "img1Alt",
     aspect: "aspect-[3/4]",
     offset: "lg:-mb-48 md:-mb-40",
   },
   {
-    src: "/images/img2.png",
+    src: "/images/img2.webp",
     altKey: "img2Alt",
     aspect: "aspect-[4/3] md:self-center",
     offset: "lg:-mb-72 md:-mb-40",
   },
   {
-    src: "/images/img3.png",
+    src: "/images/img3.webp",
     altKey: "img3Alt",
     aspect: "aspect-[3/4]",
     offset: "lg:-mb-48 md:-mb-40",
@@ -35,7 +35,7 @@ export function PhilosophySection() {
       className="relative isolate overflow-hidden bg-primary py-16 sm:py-20 lg:py-24"
     >
       <Image
-        src="/images/natural.png"
+        src="/images/natural.webp"
         alt=""
         fill
         sizes="100vw"

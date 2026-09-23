@@ -46,7 +46,7 @@ export function CelebrateSection() {
             <div className="relative z-10 border-t border-r border-l border-secondary p-6">
               <figure className="relative aspect-[565/626] w-full max-w-[565px] overflow-hidden lg:h-[626px] lg:w-[565px] lg:max-w-none lg:aspect-auto">
                 <Image
-                  src="/images/aboutus.png"
+                  src="/images/aboutus.webp"
                   alt={t("celebrate.imageAlt")}
                   fill
                   sizes="565px"

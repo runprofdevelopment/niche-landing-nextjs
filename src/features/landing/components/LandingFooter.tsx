@@ -1,8 +1,9 @@
 "use client";
 
-import { Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 
+import { siteConfig } from "@/config/site";
 import { routes } from "@/constants/routes";
 import { useTranslations } from "@/hooks/useTranslations";
 import { Link } from "@/providers/i18n";
@@ -16,6 +17,13 @@ function XIcon({ className }: { className?: string }) {
 }
 
 const NAV_KEYS = ["legacy", "services", "curators", "gallery"] as const;
+
+const SOCIAL_LINKS = [
+  { key: "instagram", href: siteConfig.social.instagram, Icon: Instagram },
+  { key: "facebook", href: siteConfig.social.facebook, Icon: Facebook },
+  { key: "twitter", href: siteConfig.social.x, Icon: XIcon },
+  { key: "linkedin", href: siteConfig.social.linkedin, Icon: Linkedin },
+] as const;
 
 export function LandingFooter() {
   const t = useTranslations("landing");
@@ -65,39 +73,19 @@ export function LandingFooter() {
                 {t("footer.social")}
               </h3>
               <ul className="space-y-3 text-sm text-white/90 sm:text-base">
-                <li>
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2.5 transition-colors hover:text-white"
-                  >
-                    <Instagram className="size-4 shrink-0" aria-hidden />
-                    {t("footer.socialLinks.instagram")}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://x.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2.5 transition-colors hover:text-white"
-                  >
-                    <XIcon className="size-4 shrink-0" />
-                    {t("footer.socialLinks.twitter")}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2.5 transition-colors hover:text-white"
-                  >
-                    <Linkedin className="size-4 shrink-0" aria-hidden />
-                    {t("footer.socialLinks.linkedin")}
-                  </a>
-                </li>
+                {SOCIAL_LINKS.map(({ key, href, Icon }) => (
+                  <li key={key}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2.5 transition-colors hover:text-white"
+                    >
+                      <Icon className="size-4 shrink-0" />
+                      {t(`footer.socialLinks.${key}`)}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 

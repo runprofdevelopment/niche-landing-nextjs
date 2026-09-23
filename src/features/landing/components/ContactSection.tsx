@@ -124,7 +124,7 @@ export function ContactSection() {
       className="relative isolate scroll-mt-20 overflow-hidden bg-primary py-16 sm:scroll-mt-24 sm:py-20 lg:py-24"
     >
       <Image
-        src="/images/natural.png"
+        src="/images/natural.webp"
         alt=""
         fill
         sizes="100vw"
@@ -189,7 +189,17 @@ export function ContactSection() {
             <form
               onSubmit={onSubmit}
               noValidate
-              className="mt-8 space-y-4 [&_label]:text-primary-foreground [&_p.text-destructive]:text-[#ffb4b4]"
+              className={cn(
+                "mt-8 space-y-4",
+                "[&_label]:text-primary-foreground",
+                "[&_p.text-destructive]:text-[#ffb4b4]",
+                // Phone + select inherit dark `text-foreground` unless forced light on this surface
+                "[&_[data-slot=phone-input-field]]:text-primary-foreground",
+                "[&_[data-slot=phone-input-field]]:placeholder:text-primary-foreground/45",
+                "[&_[data-slot=international-phone-input]]:text-primary-foreground",
+                "[&_[data-slot=select-trigger]]:text-primary-foreground",
+                "[&_[data-slot=select-trigger]_span.text-muted-foreground]:text-primary-foreground/45",
+              )}
             >
               <FormField
                 control={form.control}

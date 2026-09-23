@@ -101,7 +101,7 @@ const landing = {
     title: "Begin Your Niche Story",
     description:
       "We're ready to help you plan your perfect wedding event. Whether you have a venue in mind or need a little inspiration, our team is here to guide you every step of the way.",
-    email: "hello@nichesociety.sa",
+    email: "support@niche-society.com",
     phone: "+966 11 234 5678",
     location: "Riyadh, Saudi Arabia",
     formTitle: "Send a message",
@@ -150,10 +150,11 @@ const landing = {
     },
     socialLinks: {
       instagram: "Instagram",
+      facebook: "Facebook",
       twitter: "Twitter / X",
       linkedin: "LinkedIn",
     },
-    email: "hello@nichesociety.sa",
+    email: "support@niche-society.com",
     phone: "+966 11 234 5678",
     location: "Riyadh, Saudi Arabia",
     copyright: "© 2026 Mukhmal Luxury Systems",

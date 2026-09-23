@@ -7,6 +7,12 @@ export const siteConfig = {
     large: "/images/large-logo.png",
     meta: "/images/meta-logo.png",
   },
+  social: {
+    x: "https://x.com/NicheSocietyksa",
+    facebook: "https://www.facebook.com/NicheSocietyksa/",
+    instagram: "https://www.instagram.com/nichesocietyksa/",
+    linkedin: "https://www.linkedin.com/company/135264919",
+  },
 } as const;
 
 export const SIDEBAR_RAIL_WIDTH = "4rem";

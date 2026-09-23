@@ -63,7 +63,7 @@ export function AppPromoSection() {
           />
           <figure className="relative z-10 aspect-2418/2176 w-full">
             <Image
-              src="/images/mockup.png"
+              src="/images/mockup.webp"
               alt={t("app.imageAlt")}
               fill
               sizes="(max-width: 1024px) 90vw, 50vw"

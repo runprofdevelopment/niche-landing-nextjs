@@ -169,15 +169,15 @@ function InternationalPhoneInput({
         <Combobox.Trigger
           disabled={disabled}
           className={cn(
-            "inline-flex h-full shrink-0 items-center gap-1 rounded-md px-1.5 text-sm text-foreground outline-none",
+            "inline-flex h-full shrink-0 items-center gap-1 rounded-md px-1.5 text-sm text-inherit outline-none",
             "hover:bg-muted/60 focus-visible:bg-muted/60",
             "disabled:pointer-events-none disabled:opacity-50",
           )}
           aria-label={t("phoneCountryLabel")}
         >
           <CountryFlag countryCode={countryCode} />
-          <span className="tabular-nums text-muted-foreground">{dialCode}</span>
-          <ChevronsUpDown className="size-3.5 text-muted-foreground" />
+          <span className="tabular-nums text-inherit opacity-70">{dialCode}</span>
+          <ChevronsUpDown className="size-3.5 text-inherit opacity-70" />
         </Combobox.Trigger>
 
         <Combobox.Portal>
@@ -244,7 +244,7 @@ function InternationalPhoneInput({
         onBlur={onBlur}
         placeholder={placeholder ?? t("internationalPhonePlaceholder")}
         className={cn(
-          "h-full min-w-0 flex-1 border-0 bg-transparent p-0 text-sm text-foreground shadow-none outline-none",
+          "h-full min-w-0 flex-1 border-0 bg-transparent p-0 text-sm text-inherit shadow-none outline-none",
           "placeholder:text-muted-foreground focus-visible:ring-0",
           fieldInvalidClassName,
         )}

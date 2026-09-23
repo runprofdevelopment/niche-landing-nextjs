@@ -101,7 +101,7 @@ const landing = {
     title: "ابدأ قصة Niche الخاصة بك",
     description:
       "نحن مستعدون لمساعدتك في التخطيط لحفل زفافك المثالي. سواء كان لديك مكان في ذهنك أو تحتاج إلى بعض الإلهام، فريقنا هنا لإرشادك في كل خطوة.",
-    email: "hello@nichesociety.sa",
+    email: "support@niche-society.com",
     phone: "+966 11 234 5678",
     location: "الرياض، المملكة العربية السعودية",
     formTitle: "أرسل رسالة",
@@ -150,10 +150,11 @@ const landing = {
     },
     socialLinks: {
       instagram: "إنستغرام",
+      facebook: "فيسبوك",
       twitter: "تويتر / X",
       linkedin: "لينكدإن",
     },
-    email: "hello@nichesociety.sa",
+    email: "support@niche-society.com",
     phone: "+966 11 234 5678",
     location: "الرياض، المملكة العربية السعودية",
     copyright: "© 2026 Mukhmal Luxury Systems",

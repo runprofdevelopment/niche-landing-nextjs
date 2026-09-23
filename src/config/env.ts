@@ -43,8 +43,8 @@ export const env = {
      */
     messagingKey: normalizeEnv(process.env["NEXT_PUBLIC_FIREBASE_MESSAGING_KEY"]),
   },
-  /** Fixed for this dashboard — sent on every GraphQL request. */
-  appType: "staff" as const,
+  /** Sent on every GraphQL request as `X-App-Type`. */
+  appType: "guest" as const,
   sentryDsn: normalizeEnv(process.env["NEXT_PUBLIC_SENTRY_DSN"]),
   isDev: process.env.NODE_ENV === "development",
 } as const;
