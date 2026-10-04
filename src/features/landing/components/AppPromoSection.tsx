@@ -3,6 +3,7 @@
 import { Bell, LayoutGrid, UserCheck } from "lucide-react";
 import Image from "next/image";
 
+import { siteConfig } from "@/config/site";
 import { useTranslations } from "@/hooks/useTranslations";
 
 const FEATURES = [
@@ -11,10 +12,12 @@ const FEATURES = [
   { key: "alerts", icon: Bell },
 ] as const;
 
-function AppStoreBadge({ label }: { label: string }) {
+function AppStoreBadge({ label, href }: { label: string; href: string }) {
   return (
     <a
-      href="#"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
       aria-label={label}
       className="inline-flex h-12 items-center gap-2.5 rounded-full border border-foreground/20 bg-white px-3.5 text-[#111] shadow-sm transition-opacity hover:opacity-90 dark:border-white/20 dark:bg-black dark:text-white"
     >
@@ -29,10 +32,12 @@ function AppStoreBadge({ label }: { label: string }) {
   );
 }
 
-function GooglePlayBadge({ label }: { label: string }) {
+function GooglePlayBadge({ label, href }: { label: string; href: string }) {
   return (
     <a
-      href="#"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
       aria-label={label}
       className="inline-flex h-12 items-center gap-2.5 rounded-full border border-foreground/20 bg-white px-3.5 text-[#111] shadow-sm transition-opacity hover:opacity-90 dark:border-white/20 dark:bg-black dark:text-white"
     >
@@ -52,6 +57,7 @@ function GooglePlayBadge({ label }: { label: string }) {
 
 export function AppPromoSection() {
   const t = useTranslations("landing");
+  const downloadUrl = siteConfig.appDownloadUrl;
 
   return (
     <section id="app" className="relative bg-background py-16 sm:py-20 lg:py-24">
@@ -97,8 +103,8 @@ export function AppPromoSection() {
           </ul>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <AppStoreBadge label={t("app.appStore")} />
-            <GooglePlayBadge label={t("app.googlePlay")} />
+            <AppStoreBadge label={t("app.appStore")} href={downloadUrl} />
+            <GooglePlayBadge label={t("app.googlePlay")} href={downloadUrl} />
           </div>
         </div>
       </div>

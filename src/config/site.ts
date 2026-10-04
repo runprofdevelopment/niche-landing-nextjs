@@ -13,6 +13,8 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/nichesocietyksa/",
     linkedin: "https://www.linkedin.com/company/135264919",
   },
+  /** Universal app download (Dynalinks → App Store / Play). */
+  appDownloadUrl: "https://nichesociety.dynalinks.app",
 } as const;
 
 export const SIDEBAR_RAIL_WIDTH = "4rem";
