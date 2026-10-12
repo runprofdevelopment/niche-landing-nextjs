@@ -7,6 +7,27 @@ const landing = {
   subheadline: "25 Years of Excellence Serving Distinguished Clients with Absolute Privacy",
   cta: "Book a Demo",
   heroAlt: "Luxury ballroom event at Niche Society",
+  seo: {
+    title: "Niche Society | Luxury Event & Household Management in Riyadh",
+    description:
+      "Niche Society curates luxury weddings, elite household management, and protocol services in Riyadh—25 years of excellence with absolute privacy.",
+    privacyDescription:
+      "How Niche Society collects, uses, stores, and shares personal data in Niche Frontdesk.",
+    termsDescription:
+      "Terms and conditions for using the Niche Society website, Niche Frontdesk, and related services.",
+    keywords: [
+      "Niche Society",
+      "luxury event management Riyadh",
+      "luxury wedding planner Saudi Arabia",
+      "elite household management",
+      "protocol and etiquette services",
+      "private estate management Riyadh",
+      "bespoke events KSA",
+      "Niche Frontdesk",
+      "wedding planning Riyadh",
+      "VIP event management",
+    ],
+  },
   philosophy: {
     eyebrow: "Our Philosophy",
     title: "Where Heritage Meets the Art of Celebration.",

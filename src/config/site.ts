@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Niche Society",
   description:
-    "Plan weddings and events, design hall layouts, manage guests, and run operations for Niche Society.",
+    "Niche Society curates luxury weddings, elite household management, and protocol services in Riyadh—25 years of excellence with absolute privacy.",
   logos: {
     small: "/images/small-logo.png",
     large: "/images/large-logo.png",

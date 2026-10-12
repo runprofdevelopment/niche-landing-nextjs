@@ -29,7 +29,7 @@ export function HeroSection() {
 
       <div className="relative z-10 flex min-h-dvh flex-col justify-between px-5 pb-10 pt-28 sm:px-8 sm:pb-12 lg:px-12 lg:pb-14">
         <div className="flex flex-1 items-center justify-center">
-          <h1
+          <div
             className={cn(
               "relative w-[min(92vw,1100px)]",
               !ready && "opacity-0",
@@ -44,7 +44,7 @@ export function HeroSection() {
               priority
               className="h-auto w-full mix-blend-screen"
             />
-          </h1>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 items-end gap-6 sm:grid-cols-12 sm:gap-10">
@@ -55,9 +55,10 @@ export function HeroSection() {
               ready && "animate-hero-rise [animation-delay:280ms]",
             )}
           >
-            <h2 className="font-display text-[1.5rem] leading-tight font-bold sm:text-[32px]">
+            {/* Text H1 for SEO/a11y; brand wordmark above stays visual. */}
+            <h1 className="font-display text-[1.5rem] leading-tight font-bold sm:text-[32px]">
               {t("headline")}
-            </h2>
+            </h1>
             <p className="font-sans text-base leading-snug font-normal opacity-90 sm:text-[24px]">
               {t("subheadline")}
             </p>

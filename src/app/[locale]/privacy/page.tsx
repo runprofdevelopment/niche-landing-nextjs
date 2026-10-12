@@ -1,25 +1,34 @@
-import { siteConfig } from "@/config/site";
 import { PrivacyPolicyPage } from "@/features/landing";
+import { JsonLd } from "@/features/landing/components/JsonLd";
 import { getPrivacyPolicy } from "@/features/landing/content/privacy-policy";
-import { getLocale } from "@/providers/i18n/server";
+import { createLocaleMetadata } from "@/lib/metadata";
+import { getLocale, getTranslations } from "@/providers/i18n/server";
 
 import type { Locale } from "@/config/i18n";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = (await getLocale()) as Locale;
-  const policy = getPrivacyPolicy(locale);
+  const resolved: Locale = locale === "ar" ? "ar" : "en";
+  const policy = getPrivacyPolicy(resolved);
+  const t = await getTranslations("landing");
 
-  return {
-    title: `${policy.title} | ${siteConfig.name}`,
-    description:
-      locale === "ar"
-        ? "كيف تجمع Niche Society البيانات الشخصية في Niche Frontdesk وتستخدمها وتخزّنها وتشاركها."
-        : "How Niche Society collects, uses, stores, and shares personal data in Niche Frontdesk.",
-  };
+  return createLocaleMetadata({
+    locale: resolved,
+    title: policy.title,
+    description: t("seo.privacyDescription"),
+    path: "/privacy",
+  });
 }
 
 export default async function PrivacyPage() {
   const locale = (await getLocale()) as Locale;
-  return <PrivacyPolicyPage locale={locale === "ar" ? "ar" : "en"} />;
+  const resolved: Locale = locale === "ar" ? "ar" : "en";
+
+  return (
+    <>
+      <JsonLd locale={resolved} />
+      <PrivacyPolicyPage locale={resolved} />
+    </>
+  );
 }

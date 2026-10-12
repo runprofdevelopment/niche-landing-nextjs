@@ -8,6 +8,7 @@ export { LandingNavbar } from "./components/LandingNavbar";
 export { LandingPage } from "./components/LandingPage";
 export { LandingSplash } from "./components/LandingSplash";
 export { PhilosophySection } from "./components/PhilosophySection";
+export { JsonLd } from "./components/JsonLd";
 export { PrivacyPolicyPage } from "./components/PrivacyPolicyPage";
 export { TermsAndConditionsPage } from "./components/TermsAndConditionsPage";
 export { Reveal } from "./components/Reveal";
