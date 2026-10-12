@@ -2,10 +2,16 @@ import { defaultLocale, type Locale } from "@/config/i18n";
 
 import { siteConfig } from "./site";
 
+function isLocalhostHostname(hostname: string): boolean {
+  return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "[::1]";
+}
+
 /**
  * Normalize `NEXT_PUBLIC_APP_URL` to a bare origin (`https://example.com`).
  * - Development: missing/blank values fall back to `http://localhost:3000`.
- * - Production: missing, invalid, or non-HTTPS values throw configuration errors.
+ * - Production: missing/invalid values throw. Non-localhost URLs must use HTTPS.
+ * - Localhost HTTP is allowed during `next build` because `.env.local` can override
+ *   `.env.production` with `http://localhost:3000` on a developer machine.
  */
 function normalizeSiteUrl(value: string | undefined): string {
   const isProd = process.env.NODE_ENV === "production";
@@ -29,7 +35,8 @@ function normalizeSiteUrl(value: string | undefined): string {
     );
   }
 
-  if (isProd && url.protocol !== "https:") {
+  const isLocal = isLocalhostHostname(url.hostname);
+  if (isProd && url.protocol !== "https:" && !isLocal) {
     throw new Error(
       `NEXT_PUBLIC_APP_URL must use HTTPS in production. Received "${url.origin}" (${url.protocol}).`,
     );
