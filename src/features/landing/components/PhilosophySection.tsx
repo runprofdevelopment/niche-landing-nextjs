@@ -1,9 +1,7 @@
-"use client";
-
 import Image from "next/image";
 
-import { useTranslations } from "@/hooks/useTranslations";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "@/providers/i18n/server";
 
 const GALLERY = [
   {
@@ -26,8 +24,8 @@ const GALLERY = [
   },
 ] as const;
 
-export function PhilosophySection() {
-  const t = useTranslations("landing");
+export async function PhilosophySection() {
+  const t = await getTranslations("landing");
 
   return (
     <section
@@ -48,7 +46,7 @@ export function PhilosophySection() {
           <p className="font-geist text-[11px] font-medium tracking-[0.2em] text-secondary uppercase">
             {t("philosophy.eyebrow")}
           </p>
-          <h2 className="mt-4 font-display  text-secondary-button text-center text-[clamp(2.75rem,9vw,5.5rem)] leading-[1.05] font-normal">
+          <h2 className="mt-4 text-center font-display text-[clamp(2.75rem,9vw,5.5rem)] leading-[1.05] font-normal text-secondary-button">
             {t("philosophy.title")}
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-center font-geist text-base leading-relaxed font-normal text-primary-foreground/85">

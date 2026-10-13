@@ -1,10 +1,8 @@
-"use client";
-
 import { Bell, LayoutGrid, UserCheck } from "lucide-react";
 import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
-import { useTranslations } from "@/hooks/useTranslations";
+import { getTranslations } from "@/providers/i18n/server";
 
 const FEATURES = [
   { key: "hall", icon: LayoutGrid },
@@ -55,8 +53,8 @@ function GooglePlayBadge({ label, href }: { label: string; href: string }) {
   );
 }
 
-export function AppPromoSection() {
-  const t = useTranslations("landing");
+export async function AppPromoSection() {
+  const t = await getTranslations("landing");
   const downloadUrl = siteConfig.appDownloadUrl;
 
   return (

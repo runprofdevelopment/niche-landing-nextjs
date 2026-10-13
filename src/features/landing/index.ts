@@ -3,6 +3,7 @@ export { AppPromoSection } from "./components/AppPromoSection";
 export { CelebrateSection } from "./components/CelebrateSection";
 export { ContactSection } from "./components/ContactSection";
 export { HeroSection } from "./components/HeroSection";
+export { LandingClientChrome } from "./components/LandingClientChrome";
 export { LandingFooter } from "./components/LandingFooter";
 export { LandingNavbar } from "./components/LandingNavbar";
 export { LandingPage } from "./components/LandingPage";

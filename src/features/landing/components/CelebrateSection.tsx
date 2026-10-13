@@ -1,16 +1,14 @@
-"use client";
-
 import Image from "next/image";
 
-import { useTranslations } from "@/hooks/useTranslations";
+import { getTranslations } from "@/providers/i18n/server";
 
 const PILLARS = ["heritage", "elegance", "prestige"] as const;
 
 const NOISE_BG =
   "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
-export function CelebrateSection() {
-  const t = useTranslations("landing");
+export async function CelebrateSection() {
+  const t = await getTranslations("landing");
 
   return (
     <section
@@ -18,7 +16,7 @@ export function CelebrateSection() {
       className="relative isolate overflow-hidden bg-background pt-4 pb-20 sm:pt-8 sm:pb-24 lg:pt-8 lg:pb-28"
     >
       <div className="relative z-10 mx-auto w-full max-w-360 px-5 sm:px-8 lg:px-12">
-        <ul className=" grid grid-cols-3 gap-4 text-center">
+        <ul className="grid grid-cols-3 gap-4 text-center">
           {PILLARS.map((key) => (
             <li
               key={key}

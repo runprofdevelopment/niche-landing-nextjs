@@ -1,12 +1,10 @@
-"use client";
-
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
 import { routes } from "@/constants/routes";
-import { useTranslations } from "@/hooks/useTranslations";
-import { Link } from "@/providers/i18n";
+import { Link } from "@/providers/i18n/navigation";
+import { getTranslations } from "@/providers/i18n/server";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -30,8 +28,8 @@ const SOCIAL_LINKS = [
   { key: "linkedin", href: siteConfig.social.linkedin, Icon: Linkedin },
 ] as const;
 
-export function LandingFooter() {
-  const t = useTranslations("landing");
+export async function LandingFooter() {
+  const t = await getTranslations("landing");
 
   return (
     <footer className="relative isolate overflow-hidden bg-[#0b0b0b] text-white dark:bg-black">

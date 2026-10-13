@@ -14,6 +14,7 @@ import {
 import {
   contactFormDefaultValues,
   createContactFormSchema,
+  OTHER_EVENT_TYPE_ID,
   type ContactFormValues,
 } from "@/features/landing/schemas/contact-form.schema";
 import { useTranslations } from "@/hooks/useTranslations";
@@ -58,6 +59,7 @@ export function ContactSection() {
         phoneRequired: t("contact.validation.phoneRequired"),
         phoneInvalid: t("contact.validation.phoneInvalid"),
         eventTypeRequired: t("contact.validation.eventTypeRequired"),
+        otherEventTypeRequired: t("contact.validation.otherEventTypeRequired"),
         dateRequired: t("contact.validation.dateRequired"),
         timeRequired: t("contact.validation.timeRequired"),
         messageRequired: t("contact.validation.messageRequired"),
@@ -77,6 +79,8 @@ export function ContactSection() {
 
   const countryCode =
     useWatch({ control: form.control, name: "countryCode" }) ?? DEFAULT_PHONE_COUNTRY_CODE;
+  const eventType = useWatch({ control: form.control, name: "eventType" }) ?? "";
+  const isOtherEventType = eventType === OTHER_EVENT_TYPE_ID;
 
   const onSubmit = form.handleSubmit(
     async (values) => {
@@ -99,6 +103,8 @@ export function ContactSection() {
           countryCode: toApiDialCode(values.countryCode),
           phoneNumber: values.phoneNumber.trim(),
           eventType: values.eventType,
+          otherEventType:
+            values.eventType === OTHER_EVENT_TYPE_ID ? values.otherEventType.trim() : null,
           date,
           time,
           message: values.message.trim(),
@@ -263,7 +269,16 @@ export function ContactSection() {
                 render={(field) => (
                   <Select
                     value={field.value || null}
-                    onValueChange={(value) => field.onChange(value ?? "")}
+                    onValueChange={(value) => {
+                      const next = value ?? "";
+                      field.onChange(next);
+                      if (next !== OTHER_EVENT_TYPE_ID) {
+                        form.setValue("otherEventType", "", {
+                          shouldValidate: true,
+                          shouldDirty: true,
+                        });
+                      }
+                    }}
                     items={eventTypeOptions}
                     placeholder={t("contact.placeholders.eventType")}
                     searchable={false}
@@ -272,6 +287,22 @@ export function ContactSection() {
                   />
                 )}
               />
+
+              {isOtherEventType ? (
+                <FormField
+                  control={form.control}
+                  name="otherEventType"
+                  label={t("contact.fields.otherEventType")}
+                  required
+                  render={(field) => (
+                    <Input
+                      placeholder={t("contact.placeholders.otherEventType")}
+                      className={controlClassName}
+                      {...field}
+                    />
+                  )}
+                />
+              ) : null}
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <FormField

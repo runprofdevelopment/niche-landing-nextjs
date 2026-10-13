@@ -5,6 +5,8 @@ import {
   isValidInternationalPhone,
 } from "@/shared/utils/international-phone";
 
+export const OTHER_EVENT_TYPE_ID = "other";
+
 export type ContactFormValidationMessages = {
   nameRequired: string;
   emailRequired: string;
@@ -12,6 +14,7 @@ export type ContactFormValidationMessages = {
   phoneRequired: string;
   phoneInvalid: string;
   eventTypeRequired: string;
+  otherEventTypeRequired: string;
   dateRequired: string;
   timeRequired: string;
   messageRequired: string;
@@ -24,6 +27,7 @@ const defaultMessages: ContactFormValidationMessages = {
   phoneRequired: "Phone number is required",
   phoneInvalid: "Enter a valid phone number for the selected country",
   eventTypeRequired: "Select an event type",
+  otherEventTypeRequired: "Please describe your event type",
   dateRequired: "Date is required",
   timeRequired: "Time is required",
   messageRequired: "Message is required",
@@ -43,6 +47,7 @@ export function createContactFormSchema(
       countryCode: z.string().min(2),
       phoneNumber: z.string().trim().min(1, messages.phoneRequired),
       eventType: z.string().min(1, messages.eventTypeRequired),
+      otherEventType: z.string(),
       date: z.date().nullable(),
       time: z.date().nullable(),
       message: z.string().trim().min(1, messages.messageRequired),
@@ -61,6 +66,17 @@ export function createContactFormSchema(
           code: z.ZodIssueCode.custom,
           path: ["time"],
           message: messages.timeRequired,
+        });
+      }
+
+      if (
+        values.eventType === OTHER_EVENT_TYPE_ID &&
+        values.otherEventType.trim().length === 0
+      ) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["otherEventType"],
+          message: messages.otherEventTypeRequired,
         });
       }
 
@@ -87,6 +103,7 @@ export const contactFormDefaultValues: ContactFormValues = {
   countryCode: DEFAULT_PHONE_COUNTRY_CODE,
   phoneNumber: "",
   eventType: "",
+  otherEventType: "",
   date: null,
   time: null,
   message: "",

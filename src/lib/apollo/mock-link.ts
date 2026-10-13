@@ -108,6 +108,7 @@ const handlers: Record<string, MockHandler> = {
       date: string;
       email: string;
       eventType: string;
+      otherEventType?: string | null;
       message: string;
       phoneNumber: string;
       time: string;

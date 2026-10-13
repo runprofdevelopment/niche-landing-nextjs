@@ -6,6 +6,8 @@ export type ContactUsRequestCreateInput = {
   date: string;
   email: string;
   eventType: string;
+  /** Required by API when eventType is `other` */
+  otherEventType?: string | null;
   message: string;
   phoneNumber: string;
   time: string;

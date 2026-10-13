@@ -1,23 +1,22 @@
-"use client";
-
 import { AboutSection } from "./AboutSection";
 import { AppPromoSection } from "./AppPromoSection";
 import { CelebrateSection } from "./CelebrateSection";
 import { ContactSection } from "./ContactSection";
 import { HeroSection } from "./HeroSection";
+import { LandingClientChrome } from "./LandingClientChrome";
 import { LandingFooter } from "./LandingFooter";
-import { LandingMotionProvider } from "./LandingMotion";
 import { LandingNavbar } from "./LandingNavbar";
-import { LandingSplash } from "./LandingSplash";
 import { PhilosophySection } from "./PhilosophySection";
 import { Reveal } from "./Reveal";
 import { ServicesSection } from "./ServicesSection";
 // import { StatsSection } from "./StatsSection";
 
+/**
+ * Server Component shell — static sections SSR as HTML; interactive pieces are client islands.
+ */
 export function LandingPage() {
   return (
-    <LandingMotionProvider>
-      <LandingSplash />
+    <LandingClientChrome>
       <div className="bg-background text-foreground">
         <LandingNavbar />
         <main>
@@ -44,6 +43,6 @@ export function LandingPage() {
           <LandingFooter />
         </Reveal>
       </div>
-    </LandingMotionProvider>
+    </LandingClientChrome>
   );
 }
