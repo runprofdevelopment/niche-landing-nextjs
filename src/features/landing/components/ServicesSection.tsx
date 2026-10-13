@@ -136,7 +136,7 @@ function ServiceCard({
         {!reduceMotion && (
           <motion.span
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/25 to-transparent"
+            className="pointer-events-none absolute inset-0 bg-linear-to-tr from-transparent via-white/25 to-transparent"
             initial={false}
             animate={
               visible
@@ -182,7 +182,8 @@ export function ServicesSection() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
+  // Adjust parallax so it doesn't pull the image up (which crops the top)
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
   const bgScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.06, 1, 1.04]);
 
   const show = reduceMotion ? ready : ready && inView;
@@ -196,19 +197,15 @@ export function ServicesSection() {
       {/* Full-width blurred groom — covers descriptions + services */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <motion.div
-          className={cn(
-            "absolute top-0 left-1/2 -translate-x-1/2 blur-[3px]",
-            "h-[min(115vw,40rem)] w-[165%]",
-            "sm:inset-0 sm:left-0 sm:h-auto sm:w-auto sm:translate-x-0 sm:-m-6 sm:blur-[5px]",
-          )}
+          className="absolute inset-0 blur-[3px] sm:blur-[5px]"
           {...(!reduceMotion ? { style: { y: bgY, scale: bgScale } } : {})}
         >
           <Image
             src="/images/groom.webp"
             alt=""
             fill
-            sizes="(max-width: 640px) 165vw, 100vw"
-            className="object-cover object-[center_14%] sm:object-[center_26%] lg:object-[center_30%]"
+            sizes="100vw"
+            className="object-cover object-top"
             priority={false}
           />
         </motion.div>

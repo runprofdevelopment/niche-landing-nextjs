@@ -36,26 +36,27 @@ export function AboutSection() {
         {...(!reduceMotion ? { style: { opacity, y, scale } } : {})}
       >
         <div className="relative">
-          {/* Full-bleed primary band behind title + image */}
-          <div
-            aria-hidden
-            className="absolute top-1/2 left-1/2 z-0 h-16 w-screen -translate-x-1/2 -translate-y-1/2 bg-primary sm:h-[72px]"
-          />
-
           <div className="relative z-10 grid grid-cols-1 items-center gap-10 md:grid-cols-[1.05fr_0.95fr] md:gap-8 lg:gap-12">
             <div className="text-center">
               <p className="font-geist text-[11px] font-medium tracking-[0.22em] text-foreground/55 uppercase dark:text-secondary">
                 — {t("about.eyebrow")} —
               </p>
               {/* Light: dark heading; dark: cream/white — matches design comps */}
-              <h2 className="mt-5 text-center font-instrument text-[clamp(2rem,5vw,66px)] leading-[0.76] font-normal text-foreground lg:text-[66px] lg:leading-[50px] dark:text-[#efe2de]">
+              <h2 className="mt-5 text-center font-instrument text-[clamp(2rem,5vw,66px)] leading-[0.76] font-normal text-foreground lg:text-[66px] lg:leading-12.5 dark:text-[#efe2de]">
                 <span className="block">{t("about.titleLine1")}</span>
-                <span className="block">{t("about.titleLine2")}</span>
+                <span className="relative block text-primary-foreground dark:text-[#efe2de]">
+                  {/* Full-bleed primary band behind title line 2 + image */}
+                  <span
+                    aria-hidden
+                    className="absolute top-1/2 left-1/2 -z-10 h-[1.1em] w-[200vw] -translate-x-1/2 -translate-y-1/2 bg-primary"
+                  />
+                  {t("about.titleLine2")}
+                </span>
                 <span className="block">{t("about.titleLine3")}</span>
               </h2>
             </div>
 
-            <figure className="relative aspect-[1164/732] w-full overflow-hidden">
+            <figure className="relative aspect-1164/732 w-full overflow-hidden">
               <Image
                 src="/images/girl.webp"
                 alt={t("about.imageAlt")}

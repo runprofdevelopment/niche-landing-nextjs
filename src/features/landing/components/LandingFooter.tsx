@@ -60,7 +60,7 @@ export async function LandingFooter() {
               <h3 className="mb-4 text-[0.7rem] font-medium tracking-[0.22em] text-[#b8a078] uppercase">
                 {t("footer.navigation")}
               </h3>
-              <ul className="space-y-3 font-display text-base text-white/90 sm:text-lg">
+              <ul className="space-y-3 text-sm text-white/90 sm:text-base">
                 {NAV_LINKS.map(({ key, href }) => (
                   <li key={key}>
                     <a href={href} className="transition-colors hover:text-white">
