@@ -7,10 +7,14 @@ const landing = {
   subheadline: "٢٥ عاماً من التميز في خدمة عملاء مميزين بخصوصية مطلقة",
   cta: "احجز عرضاً",
   heroAlt: "قاعة فاخرة لفعالية في Niche Society",
+  maintenance: {
+    title: "الموقع تحت الصيانة",
+    message: "نعمل على تحسينات. يرجى العودة قريباً.",
+    settingsAria: "فتح الإعدادات / تسجيل الدخول",
+  },
   seo: {
-    title: "Niche Society | إدارة الفعاليات والمنازل الفاخرة في الرياض",
-    description:
-      "Niche Society تقدّم تنظيم حفلات الزفاف الفاخرة وإدارة المنازل الراقية وخدمات البروتوكول في الرياض—٢٥ عاماً من التميّز بخصوصية تامة.",
+    title: "Niche Society | الموقع تحت الصيانة",
+    description: "موقع Niche Society قيد الصيانة حالياً. يرجى العودة قريباً.",
     privacyDescription:
       "كيف تجمع Niche Society البيانات الشخصية في Niche Frontdesk وتستخدمها وتخزّنها وتشاركها.",
     termsDescription:
@@ -108,7 +112,11 @@ const landing = {
     },
     imageAlt: "تطبيق Niche Frontdesk على هاتفين",
     appStore: "حمّل من App Store",
+    appStoreEyebrow: "حمّل من",
+    appStoreName: "App Store",
     googlePlay: "حمّل من Google Play",
+    googlePlayEyebrow: "حمّل من",
+    googlePlayName: "Google Play",
   },
   stats: {
     items: {

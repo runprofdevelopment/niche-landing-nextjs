@@ -1,5 +1,4 @@
-import { LandingPage } from "@/features/landing";
-import { JsonLd } from "@/features/landing/components/JsonLd";
+import { MaintenancePage } from "@/features/landing";
 import { createLocaleMetadata } from "@/lib/metadata";
 import { getLocale, getTranslations } from "@/providers/i18n/server";
 
@@ -20,13 +19,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const locale = (await getLocale()) as Locale;
-  const resolved: Locale = locale === "ar" ? "ar" : "en";
-
-  return (
-    <>
-      <JsonLd locale={resolved} />
-      <LandingPage />
-    </>
-  );
+  return <MaintenancePage />;
 }

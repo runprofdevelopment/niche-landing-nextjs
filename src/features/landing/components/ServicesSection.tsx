@@ -104,7 +104,7 @@ function ServiceCard({
       {...(!reduceMotion ? { whileHover: { y: -6 } } : {})}
     >
       <motion.figure
-        className="relative aspect-square overflow-hidden rounded-sm"
+        className="relative mx-auto aspect-[216/226] w-full max-w-80 overflow-hidden rounded-sm sm:max-w-85"
         initial={false}
         animate={visible ? { scale: 1 } : { scale: reduceMotion ? 1 : 1.08 }}
         transition={{ duration: 0.9, ease, delay: delay + 0.05 }}
@@ -127,7 +127,7 @@ function ServiceCard({
             src={service.src}
             alt={t(`services.items.${service.key}.alt`)}
             fill
-            sizes="(max-width: 768px) 90vw, 360px"
+            sizes="(max-width: 768px) 90vw, 340px"
             className="object-cover"
           />
         </motion.div>
@@ -149,7 +149,7 @@ function ServiceCard({
       </motion.figure>
 
       <motion.h3
-        className="mt-4 font-instrument text-xl leading-snug font-normal text-foreground sm:text-2xl"
+        className="mt-4 font-instrument text-2xl leading-snug font-normal text-foreground sm:text-3xl"
         initial={false}
         animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
         transition={{ duration: 0.55, ease, delay: delay + 0.18 }}

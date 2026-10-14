@@ -7,10 +7,15 @@ const landing = {
   subheadline: "25 Years of Excellence Serving Distinguished Clients with Absolute Privacy",
   cta: "Book a Demo",
   heroAlt: "Luxury ballroom event at Niche Society",
+  maintenance: {
+    title: "Website Under Maintenance",
+    message: "We're making improvements. Please check back soon.",
+    settingsAria: "Open settings / sign in",
+  },
   seo: {
-    title: "Niche Society | Luxury Event & Household Management in Riyadh",
+    title: "Niche Society | Website Under Maintenance",
     description:
-      "Niche Society curates luxury weddings, elite household management, and protocol services in Riyadh—25 years of excellence with absolute privacy.",
+      "Niche Society's website is currently under maintenance. Please check back soon.",
     privacyDescription:
       "How Niche Society collects, uses, stores, and shares personal data in Niche Frontdesk.",
     termsDescription:
@@ -108,7 +113,11 @@ const landing = {
     },
     imageAlt: "Niche Frontdesk mobile app on two phones",
     appStore: "Download on the App Store",
+    appStoreEyebrow: "Download on the",
+    appStoreName: "App Store",
     googlePlay: "Get it on Google Play",
+    googlePlayEyebrow: "GET IT ON",
+    googlePlayName: "Google Play",
   },
   stats: {
     items: {

@@ -377,6 +377,16 @@
   animation: landing-reveal-scale 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes maintenance-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
 /**
  * Data-table scrollports: on mouse/trackpad desktops, force classic always-visible
  * scrollbars. Touch devices keep overlay scrollbars (appear while dragging).
