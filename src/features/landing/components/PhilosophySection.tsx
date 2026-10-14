@@ -59,7 +59,7 @@ export async function PhilosophySection() {
             <figure
               key={item.src}
               className={cn(
-                "group relative w-full overflow-hidden rounded-sm",
+                "group relative z-10 w-full overflow-hidden rounded-sm bg-background",
                 item.aspect,
                 item.offset,
               )}
