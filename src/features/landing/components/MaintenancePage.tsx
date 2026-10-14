@@ -13,14 +13,16 @@ export async function MaintenancePage() {
 
   return (
     <main className="relative flex min-h-dvh flex-col items-center justify-center bg-primary px-6 text-center text-primary-foreground">
-      <Image
-        src="/images/logo.png"
-        alt={t("logoAlt")}
-        width={120}
-        height={140}
-        priority
-        className="h-24 w-auto sm:h-28"
-      />
+      <div className="relative h-28 w-72 sm:h-36 sm:w-[22rem] lg:h-44 lg:w-[28rem]">
+        <Image
+          src="/images/logo.png"
+          alt={t("logoAlt")}
+          fill
+          priority
+          sizes="(max-width: 640px) 18rem, (max-width: 1024px) 22rem, 28rem"
+          className="object-contain object-center mix-blend-screen"
+        />
+      </div>
 
       <h1 className="mt-10 font-display text-[clamp(1.75rem,5vw,2.75rem)] leading-tight font-normal text-secondary-button">
         {t("maintenance.title")}
