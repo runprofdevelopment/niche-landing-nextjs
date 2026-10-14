@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { getTranslations } from "@/providers/i18n/server";
+import { getLocale, getTranslations } from "@/providers/i18n/server";
 
 const GALLERY = [
   {
@@ -26,6 +26,8 @@ const GALLERY = [
 
 export async function PhilosophySection() {
   const t = await getTranslations("landing");
+  const locale = await getLocale();
+  const isAr = locale === "ar";
 
   return (
     <section
@@ -43,7 +45,12 @@ export async function PhilosophySection() {
 
       <div className="relative z-10 mx-auto w-full max-w-360 px-5 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-5xl text-center text-primary-foreground">
-          <p className="font-geist text-[11px] font-medium tracking-[0.2em] text-secondary uppercase">
+          <p
+            className={cn(
+              "font-geist font-medium tracking-[0.2em] text-secondary uppercase",
+              isAr ? "text-base sm:text-lg" : "text-[11px]",
+            )}
+          >
             {t("philosophy.eyebrow")}
           </p>
           <h2 className="mt-4 text-center font-display text-[clamp(2.75rem,9vw,5.5rem)] leading-[1.05] font-normal text-secondary-button">

@@ -12,6 +12,7 @@ import { useRef } from "react";
 
 import { useTranslations } from "@/hooks/useTranslations";
 import { cn } from "@/lib/utils";
+import { useCurrentLocale } from "@/providers/i18n/client";
 
 import { useLandingMotion } from "./LandingMotion";
 
@@ -76,6 +77,7 @@ function ServiceCard({
   const visible = reduceMotion ? show : show && cardInView;
   const offset = entryOffset(service.from);
   const delay = reduceMotion ? 0 : (ASYNC_DELAYS[index] ?? index * 0.15);
+  const isDigital = service.key === "digital";
 
   return (
     <motion.article
@@ -104,13 +106,16 @@ function ServiceCard({
       {...(!reduceMotion ? { whileHover: { y: -6 } } : {})}
     >
       <motion.figure
-        className="relative mx-auto aspect-[216/226] w-full max-w-80 overflow-hidden rounded-sm sm:max-w-85"
+        className={cn(
+          "relative aspect-[216/226] w-full rounded-sm",
+          isDigital ? "overflow-visible" : "overflow-hidden",
+        )}
         initial={false}
         animate={visible ? { scale: 1 } : { scale: reduceMotion ? 1 : 1.08 }}
         transition={{ duration: 0.9, ease, delay: delay + 0.05 }}
         {...(!reduceMotion
           ? {
-              whileHover: { scale: 1.04 },
+              whileHover: { scale: isDigital ? 1.02 : 1.04 },
             }
           : {})}
       >
@@ -118,7 +123,7 @@ function ServiceCard({
           className="absolute inset-0"
           {...(!reduceMotion
             ? {
-                whileHover: { scale: 1.08 },
+                whileHover: { scale: isDigital ? 1.02 : 1.08 },
                 transition: { type: "spring" as const, stiffness: 220, damping: 24 },
               }
             : {})}
@@ -128,7 +133,11 @@ function ServiceCard({
             alt={t(`services.items.${service.key}.alt`)}
             fill
             sizes="(max-width: 768px) 90vw, 340px"
-            className="object-cover"
+            className={cn(
+              "object-center",
+              // Keep cover on small/md (looks good); contain on lg+ so the iPad isn't cropped
+              isDigital ? "object-cover lg:object-contain" : "object-cover",
+            )}
           />
         </motion.div>
 
@@ -149,7 +158,7 @@ function ServiceCard({
       </motion.figure>
 
       <motion.h3
-        className="mt-4 font-instrument text-2xl leading-snug font-normal text-foreground sm:text-3xl"
+        className="mt-4 w-full text-start font-instrument text-2xl leading-snug font-normal text-foreground sm:text-3xl"
         initial={false}
         animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
         transition={{ duration: 0.55, ease, delay: delay + 0.18 }}
@@ -157,7 +166,7 @@ function ServiceCard({
         {t(`services.items.${service.key}.title`)}
       </motion.h3>
       <motion.p
-        className="mt-2 font-geist text-sm leading-relaxed text-foreground/80 sm:text-base"
+        className="mt-2 w-full text-start font-geist text-sm leading-relaxed text-foreground/80 sm:text-base"
         initial={false}
         animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
         transition={{ duration: 0.55, ease, delay: delay + 0.28 }}
@@ -170,6 +179,8 @@ function ServiceCard({
 
 export function ServicesSection() {
   const t = useTranslations("landing");
+  const locale = useCurrentLocale();
+  const isAr = locale === "ar";
   const { ready } = useLandingMotion();
   const reduceMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
@@ -235,7 +246,10 @@ export function ServicesSection() {
           transition={{ duration: 0.7, delay: reduceMotion ? 0 : 0.08, ease }}
         >
           <motion.p
-            className="font-geist text-[11px] font-medium tracking-[0.22em] text-secondary uppercase"
+            className={cn(
+              "font-geist font-medium tracking-[0.22em] text-secondary uppercase",
+              isAr ? "text-base sm:text-lg" : "text-[11px]",
+            )}
             initial={false}
             animate={show ? { opacity: 1, letterSpacing: "0.22em" } : { opacity: 0, letterSpacing: "0.4em" }}
             transition={{ duration: 0.8, ease }}

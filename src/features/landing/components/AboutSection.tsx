@@ -10,9 +10,13 @@ import Image from "next/image";
 import { useRef } from "react";
 
 import { useTranslations } from "@/hooks/useTranslations";
+import { cn } from "@/lib/utils";
+import { useCurrentLocale } from "@/providers/i18n/client";
 
 export function AboutSection() {
   const t = useTranslations("landing");
+  const locale = useCurrentLocale();
+  const isAr = locale === "ar";
   const reduceMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -38,7 +42,12 @@ export function AboutSection() {
         <div className="relative">
           <div className="relative z-10 grid grid-cols-1 items-center gap-10 md:grid-cols-[1.05fr_0.95fr] md:gap-8 lg:gap-12">
             <div className="text-center">
-              <p className="font-geist text-[11px] font-medium tracking-[0.22em] text-foreground/55 uppercase dark:text-secondary">
+              <p
+                className={cn(
+                  "font-geist font-medium tracking-[0.22em] text-foreground/55 uppercase dark:text-secondary",
+                  isAr ? "text-base sm:text-lg" : "text-[11px]",
+                )}
+              >
                 — {t("about.eyebrow")} —
               </p>
               {/* Light: dark heading; dark: cream/white — matches design comps */}

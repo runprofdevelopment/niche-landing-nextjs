@@ -13,9 +13,9 @@ const landing = {
     settingsAria: "Open settings / sign in",
   },
   seo: {
-    title: "Niche Society | Website Under Maintenance",
+    title: "Niche Society | Luxury Event & Household Management in Riyadh",
     description:
-      "Niche Society's website is currently under maintenance. Please check back soon.",
+      "Niche Society curates luxury weddings, elite household management, and protocol services in Riyadh—25 years of excellence with absolute privacy.",
     privacyDescription:
       "How Niche Society collects, uses, stores, and shares personal data in Niche Frontdesk.",
     termsDescription:

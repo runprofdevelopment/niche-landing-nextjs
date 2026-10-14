@@ -13,8 +13,9 @@ const landing = {
     settingsAria: "فتح الإعدادات / تسجيل الدخول",
   },
   seo: {
-    title: "Niche Society | الموقع تحت الصيانة",
-    description: "موقع Niche Society قيد الصيانة حالياً. يرجى العودة قريباً.",
+    title: "Niche Society | إدارة الفعاليات والمنازل الفاخرة في الرياض",
+    description:
+      "Niche Society تقدّم تنظيم حفلات الزفاف الفاخرة وإدارة المنازل الراقية وخدمات البروتوكول في الرياض—٢٥ عاماً من التميّز بخصوصية تامة.",
     privacyDescription:
       "كيف تجمع Niche Society البيانات الشخصية في Niche Frontdesk وتستخدمها وتخزّنها وتشاركها.",
     termsDescription:
