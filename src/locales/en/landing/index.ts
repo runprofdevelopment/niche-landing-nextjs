@@ -181,7 +181,7 @@ const landing = {
     email: "support@niche-society.com",
     phone: "+966 57 395 0656",
     location: "Riyadh, Saudi Arabia",
-    copyright: "© 2026 Mukhmal Luxury Systems",
+    copyright: "© 2026 Niche Society Company LLC",
     privacy: "Privacy Policy",
     terms: "Terms & Conditions",
   },

@@ -71,7 +71,6 @@ export async function PhilosophySection() {
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
-              <div aria-hidden className="absolute inset-0 bg-primary/30" />
             </figure>
           ))}
         </div>

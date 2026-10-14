@@ -1,13 +1,13 @@
-import { Arimo, Domine, Geist, Instrument_Serif, Noto_Sans_Arabic } from "next/font/google";
+import { Arimo, Cairo, Domine, Geist, Instrument_Serif } from "next/font/google";
 
-/** Arimo has no Arabic glyphs; Noto Sans Arabic covers those characters in the body stack. */
+/** Arimo has no Arabic glyphs; Cairo covers those characters in the body stack. */
 export const fontSans = Arimo({
   subsets: ["latin"],
   variable: "--font-arimo",
   display: "swap",
 });
 
-export const fontSansArabic = Noto_Sans_Arabic({
+export const fontSansArabic = Cairo({
   subsets: ["arabic"],
   variable: "--font-arimo-arabic",
   display: "swap",

@@ -4,8 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: var(--font-domine), Georgia, serif;
-  --font-instrument: var(--font-instrument-serif), Georgia, serif;
+  --font-display: var(--font-domine), var(--font-arimo-arabic), Georgia, serif;
+  --font-instrument: var(--font-instrument-serif), var(--font-arimo-arabic), Georgia, serif;
   --font-sans: var(--font-arimo), var(--font-arimo-arabic), ui-sans-serif, system-ui, sans-serif;
   --font-geist: var(--font-geist-sans), var(--font-arimo-arabic), ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
@@ -222,7 +222,7 @@
   [data-slot="sheet-title"],
   [data-slot="alert-dialog-title"],
   [data-slot="drawer-title"] {
-    font-family: var(--font-domine), Georgia, serif;
+    font-family: var(--font-domine), var(--font-arimo-arabic), Georgia, serif;
     letter-spacing: -0.01em;
   }
 }
